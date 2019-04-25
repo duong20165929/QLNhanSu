@@ -13,5 +13,4 @@ while($row = $query->fetch()){
 }
 //return json data
 echo json_encode($data);
-}
 ?>

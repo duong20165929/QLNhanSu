@@ -1,4 +1,4 @@
-<?php /*defined in your exampleconfig.php*/
+<?php 
 define('DBUSER','root');
 define('DBPASS','');
 define('SERVERHOST','localhost');

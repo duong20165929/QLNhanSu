@@ -6,7 +6,7 @@
 <!--    <meta http-equiv="refresh" content="1"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Personnel Profiling</title>
+    <title>Hồ Sơ Nhân Viên</title>
  <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -77,11 +77,11 @@
     <!-- #END# Overlay For Sidebars -->
     <!-- Top Bar -->
     <nav class="navbar">
-        <div class="container-fluid" style="background-color:#98ad1e;">
+        <div class="container-fluid" style="background-color:#f44336;">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="home.php" style="color: #fff;">Hồ sơ nhân sự</a>
+                <a class="navbar-brand" href="home.php" style="color: #fff;">Quản Lý Nhân Viên</a>
                 <ul class = "nav navbar-right"> 
                 <li class = "dropdown">
                     <a class = "user dropdown-toggle" data-toggle = "dropdown" href = "#" style="color: #fff;">
@@ -90,7 +90,7 @@
                     </a>
                 <ul class = "dropdown-menu">
                     <li>
-                       <a class = "me" href = "logout.php" onclick="if(confirm('Logging out, Thank you and see you soon Admin!') == 0){return false;}"><i class = "glyphicon glyphicon-log-out"></i> Logout</a>
+                        <a class = "me" href = "logout.php"><i class = "glyphicon glyphicon-log-out"></i>Đăng xuất</a>
                     </li>
                 </ul>
                 </li>
@@ -105,51 +105,116 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">Bảng điều khiển</li>
+                    <li class="header"><p style="text-align: center;">Viện Công Nghệ Thông Tin và Truyền Thông Đại Học Bách Khoa Hà Nội</p></li>
                     <li>
                         <a href="home.php">
-                            <i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Trang chủ
+                            <i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Home
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp;Cập nhật thông tin
+                            <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp;Mange
                         </a>
-                        
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="all_personnel.php">Nhân viên</a>
+                            </li>
+                            <li>
+                                <a href="position_table.php">Chỉ thị</a>
+                            </li>
+                            <li>
+                                <a href="gass_rank_table.php">GASS </a>
+                            </li>
+                            <li>
+                                <a href="rank_table.php">Academic Rank</a>
+                            </li>
+                            <li>
+                                <a href="department_table.php">Bộ phận</a>
+                            </li>
+                            <li>
+                                <a href="file_table.php">
+                                    Files
+                                </a>
+                            </li>
+                        </ul> 
                     </li>                   
-                   
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             
-                            <i class="glyphicon glyphicon-print"></i>&nbsp;&nbsp;Báo cáo
+                            <i class="glyphicon glyphicon-education"></i>&nbsp;&nbsp;Campuses
                         </a>
-                        
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="all_campus.php">ALL CAMPUSES</a>
+                            </li>
+                            <li>
+                                <a href="talisay_campus.php">TALISAY</a>
+                            </li>
+                            <li>
+                                <a href="fortune_towne_campus.php">FORTUNE TOWNE</a>
+                            </li>
+                            <li>
+                                <a href="alijis_campus.php">ALIJIS</a>
+                            </li>
+                            <li>
+                                <a href="binalbagan_campus.php">BINALBAGAN</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            
+                            <i class="glyphicon glyphicon-print"></i>&nbsp;&nbsp;Reports
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="individual_report.php">Individual Reports</a>
+                            </li>
+                            <li>
+                                <a href="retirement_table.php">Retirement</a>
+                            </li>
+                            <li>
+                                <a href="faculty_profile.php">Faculty Profile by Unit</a>
+                            </li>
+                            <li>
+                                <a href="educational_qualification.php">Educational Qualifications</a>
+                            </li>
+                            <li>
+                                <a href="faculty_per_campus.php">Number of Faculty / Campus</a>
+                            </li>
+                            <li>
+                                <a href="Faculty_profile_by_degree.php">Faculty Profile by Degree</a>
+                            </li>
+                            <li>
+                                <a href="faculty_profile_by_academic_rank.php">Faculty Profile by Academic Rank</a>
+                            </li>
+                            <li>
+                                <a href="breakdown_of_faculty_profile.php">Breakdown Of Faculty</a>
+                            </li>
+                            <li>
+                                <a href="gass_profile_by_degree.php">Gass Profile By Degree</a>
+                            </li>
+                            <li>
+                                <a href="gass_per_campus.php">Number of Gass Personnel per Campus</a>
+                            </li>
+                            <li>
+                                <a href="job_order_per_campus.php">Number of Job Order Personnel per Campus</a>
+                            </li>
+                            <li>
+                                <a href="gass_personnel.php">GASS Personnel with Completed Master's and Doctoral Degree</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul><br><br><br>
-                <div class="dtime">
-                    <div class="alert alert-info">
-                        <i class="icon-calendar"></i>
-                        <?php
-                        $today = date('y:m:d');
-                        $new = date('l, F d, Y', strtotime($today));
-                        echo $new;
-                        ?>
-                    </div>
-                 </div>
-                
-                <?php
-                   
-                    $date = date('-m-d');
-                   
-                ?>
-                    </div>
-                </div>
+
             </div>
 
         </aside>
     </section>
 
-            
+            <?php include("add_position_modal.php"); ?>
+            <?php include("add_rank_modal.php"); ?>
+            <?php include("add_department_modal.php"); ?>
 
 
 

@@ -3,22 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-<!--    <meta http-equiv="refresh" content="1"> -->
+
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Hồ Sơ Nhân Viên</title>
- <!-- Favicon-->
+
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Bootstrap Core Css -->
+ 
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="plugins/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!-- Custom Css -->
+    
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style1.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
-    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    
     <style type="text/css">
     .fileUpload {
         position: relative;
@@ -72,48 +72,26 @@
     </style>
 </head>
 <body class="theme-red">
-    <!-- Overlay For Sidebars -->
+    
     <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Top Bar -->
-    <nav class="navbar">
-        <div class="container-fluid" style="background-color:#f44336;">
-            <div class="navbar-header">
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="home.php" style="color: #fff;">Quản Lý Nhân Viên</a>
-                <ul class = "nav navbar-right"> 
-                <li class = "dropdown">
-                    <a class = "user dropdown-toggle" data-toggle = "dropdown" href = "#" style="color: #fff;">
-                        <span class = "glyphicon glyphicon-user" style="color: #fff;"></span>
-                        <b class = "caret"></b>
-                    </a>
-                <ul class = "dropdown-menu">
-                    <li>
-                        <a class = "me" href = "logout.php"><i class = "glyphicon glyphicon-log-out"></i>Đăng xuất</a>
-                    </li>
-                </ul>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- #Top Bar -->
+    
+    <div style="width: 100%;height: 70px;background-color: #0B0B3B;">
+        <a href="home.php">
+            <span class = "navbar-brand"><p style="text-align: center;"><img src="images/logo.jpg" style="display: inline-block;" width="30" height="50"> ĐẠI HỌC BÁCH KHOA HÀ NỘI - HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY</p></span>
+        </a>
+    </div>
+   
     <section>
-        <!-- Left Sidebar -->
+        
         <aside id="leftsidebar" class="sidebar">
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header"><p style="text-align: center;">Viện Công Nghệ Thông Tin và Truyền Thông Đại Học Bách Khoa Hà Nội</p></li>
-                    <li>
-                        <a href="home.php">
-                            <i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Home
-                        </a>
-                    </li>
+                    <li class="header"><p style="text-align: center;"><img src="images/logovien.jpg" style="display: inline-block;" width="20" height="20"> Viện Công Nghệ Thông Tin và Truyền Thông</p></li>
+                    
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp;Mange
+                            <i class="glyphicon glyphicon-th-large"></i>&nbsp;&nbsp;Danh mục
                         </a>
                         <ul class="ml-menu">
                             <li>
@@ -204,6 +182,11 @@
                                 <a href="gass_personnel.php">GASS Personnel with Completed Master's and Doctoral Degree</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="logout.php"> 
+                            <i class="glyphicon">&#xe163;</i>
+                        </a>
                     </li>
                 </ul><br><br><br>
 

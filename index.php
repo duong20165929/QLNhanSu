@@ -26,8 +26,8 @@
 <body>
 	
 	<div style="background-image: url('images/background.jpg'); width: 100%;height:100%;">
-		<div class = "navbar navbar-default" style="background-color:green; height:90px;">
-			<span class = "navbar-brand"><p style="text-align: center;"><img src="images/logo.jpg" style="display: inline-block;" width="40" height="60"> Đại Học Bách Khoa Hà Nội - Viện Công Nghệ Thông Tin và Truyền Thông</p></span>
+		<div class = "navbar navbar-default" style="background-color:#0B0B3B; height:90px;">
+			<span class = "navbar-brand"><p style="text-align: center;"><img src="images/logo.jpg" style="display: inline-block;" width="40" height="60"> ĐẠI HỌC BÁCH KHOA HÀ NỘI - VIỆN CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG</p></span>
 		</div>
 		<div id = "top" class = "login">
 			<div class = "panel panel-primary">
@@ -38,11 +38,11 @@
 					<form enctype = "multipart/form-data" action = "login_query.php" role = "form" method = "POST">
 						<div class = "form-group">
 							<label for = "username">Username</label>
-							<input class = "form-control" name = "admin_user" type = "text" required = "required" >
+							<input class = "form-control" name = "admin_user" type = "text" required = "required">
 						</div>
 						<div class = "form-group">
 							<label for = "password">Password</label>
-							<input class = "form-control" name = "admin_pass" type = "password" required = "required" >
+							<input class = "form-control" name = "admin_pass" type = "password" required = "required">
 						</div>
 						<div class = "form-group">
 							<button class = "btn btn-block btn-success" name = "login">Login</button>

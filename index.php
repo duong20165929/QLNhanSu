@@ -25,8 +25,9 @@
 	</head>
 <body>
 	<div class = "navbar navbar-default" style="background-color:green;">
-		<span class = "navbar-brand">Chào mừng, Quản Lý Nhân Viên - Thiết Kế và Lập Trình WEB</span>
+		<span class = "navbar-brand"><p style="text-align: center;">Đại Học Bách Khoa Hà Nội - Viện Công Nghệ Thông Tin và Truyền Thông</p></span>
 	</div>
+	
 	<div id = "top" class = "login">
 		<div class = "panel panel-primary">
 			<div class = "panel-heading">

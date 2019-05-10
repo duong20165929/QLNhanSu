@@ -1,3 +1,3 @@
 ﻿Tài Khoản để đăng nhập với quyền admin
-user: admin
+username: admin
 pass: admin

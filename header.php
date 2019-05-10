@@ -98,13 +98,13 @@
                                 <a href="all_personnel.php">Nhân viên</a>
                             </li>
                             <li>
-                                <a href="position_table.php">Chỉ thị</a>
+                                <a href="position_table.php">Chức vụ</a>
                             </li>
                             <li>
-                                <a href="gass_rank_table.php">GASS </a>
+                                <a href="gass_rank_table.php">gass</a>
                             </li>
                             <li>
-                                <a href="rank_table.php">Academic Rank</a>
+                                <a href="rank_table.php">Học vị</a>
                             </li>
                             <li>
                                 <a href="department_table.php">Bộ phận</a>

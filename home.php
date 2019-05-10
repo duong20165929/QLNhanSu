@@ -10,7 +10,7 @@
                         <div class="content">
                               <?php
                                 include('connect.php');
-                                 $permanent = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'Permanent'");
+                                 $permanent = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'Biên chế'");
                                     $permanent->execute();
                                     $fetch = $permanent->fetchAll();
 
@@ -18,53 +18,33 @@
                                    $total = $row['COUNT(*)'];
 
                                 }?>
-                            <div class="text">PERMANENT</div>
+                            <div class="text">Biên chế</div>
                             <div class="number count-to"><?php echo $total; ?></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+<!--                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-cyan hover-expand-effect">
                         <div class="icon">                        
                             <i class="glyphicon glyphicon-user"></i>
                         </div>
                         <div class="content">
-                            <?php
-                                include('connect.php');
-                                 $gass = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'GASS'");
-                                    $gass->execute();
-                                    $fetch1 = $gass->fetchAll();
-
-                                foreach($fetch1 as $key => $row1) { 
-                                   $total1 = $row1['COUNT(*)'];
-
-                              }?>
+                            //<?php
+//                                include('connect.php');
+//                                 $gass = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = ''");
+//                                    $gass->execute();
+//                                    $fetch1 = $gass->fetchAll();
+//
+//                                foreach($fetch1 as $key => $row1) { 
+//                                   $total1 = $row1['COUNT(*)'];
+//
+//                              }?>
                             <div class="text">GASS</div>
                             <div class="number count-to"><?php echo $total1; ?></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-light-green hover-expand-effect">
-                        <div class="icon">
-                            <i class="glyphicon glyphicon-user"></i>
-                        </div>
-                        <div class="content">
-                            <?php
-                                include('connect.php');
-                                 $parttime = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'Part Time'");
-                                    $parttime->execute();
-                                    $fetch2 = $parttime->fetchAll();
-
-                                foreach($fetch2 as $key => $row2) { 
-                                   $total2 = $row2['COUNT(*)'];
-
-                              }?>
-                            <div class="text">PART-TIME</div>
-                            <div class="number count-to"><?php echo $total2; ?></div>
-                        </div>
-                    </div>
-                </div>
+                </div>-->
+                
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-orange hover-expand-effect">
                         <div class="icon">
@@ -73,7 +53,7 @@
                         <div class="content">
                             <?php
                                 include('connect.php');
-                                 $jobOrder = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'Job Order'");
+                                 $jobOrder = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'Hợp đồng'");
                                     $jobOrder->execute();
                                     $fetch3 = $jobOrder->fetchAll();
 
@@ -81,7 +61,7 @@
                                    $total3 = $row3['COUNT(*)'];
 
                               }?>
-                            <div class="text">JOB ORDER</div>
+                            <div class="text">Hợp đồng</div>
                             <div class="number count-to"><?php echo $total3; ?></div>
                         </div>
                     </div>
@@ -92,11 +72,11 @@
         <script src="js/jquery.min.js"></script>
         <?php include('script.php'); ?> 
 
-        <!-- Educational Qualification -->
-        <!-- Talisay -->
+        
         <?php
           include('connect.php');
-          $qtalisay = $con->prepare("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Talisay'") or die(mysqli_error());
+          $date = date("Y", strtotime("+ 8 HOURS"));
+          $qtalisay = $con->prepare("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Công nghệ phần mềm'") or die(mysqli_error());
           $qtalisay->execute();
           $talisay = $qtalisay->fetchAll();
           foreach($talisay as $key => $row) { 
@@ -105,9 +85,9 @@
             }?>
 
 
-        <!-- Alijis -->
+
           <?php
-          $qalijis = $con->query("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Alijis'") or die(mysqli_error());
+          $qalijis = $con->query("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Khoa học máy tính'") or die(mysqli_error());
           $qalijis->execute();
           $alijis = $qalijis->fetchAll();
           foreach($alijis as $key => $row) { 
@@ -116,9 +96,8 @@
             }?>
 
 
-        <!-- Binalbagan -->
           <?php
-          $qbinalbagan = $con->query("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Binalbagan'") or die(mysqli_error());
+          $qbinalbagan = $con->query("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Kĩ thuật máy tính'") or die(mysqli_error());
           $qbinalbagan->execute();
           $binalbagan = $qbinalbagan->fetchAll();
           foreach($binalbagan as $key => $row) { 
@@ -129,7 +108,15 @@
 
         <!-- Fortune Towne -->
           <?php
-          $qftown = $con->prepare("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Fortune Towne'") or die(mysqli_error());
+          $qftown = $con->prepare("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Hệ thống thông tin'") or die(mysqli_error());
+          $qftown->execute();
+          $fortunetowne = $qftown->fetchAll();
+          foreach($fortunetowne as $key => $row) { 
+           $total3 = $row["COUNT('per_campus')"];
+
+            }?>
+        <?php
+          $qftown = $con->prepare("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Truyền thông và mạng máy tính'") or die(mysqli_error());
           $qftown->execute();
           $fortunetowne = $qftown->fetchAll();
           foreach($fortunetowne as $key => $row) { 
@@ -139,10 +126,10 @@
         
 
             <!-- Educational Qualification -->
-            <!-- Talisay -->
+            <!-- CNPM -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Talisay' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Công nghệ phần mềm' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -151,7 +138,7 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Talisay' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Công nghệ phần mềm' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -160,7 +147,7 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Talisay' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Công nghệ phần mềm' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -168,10 +155,10 @@
                    $edtdr = $row['COUNT(DISTINCT dr_name)'];
             }?>
 
-            <!-- Fortune Towne -->
+            <!-- KHMT -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Fortune Towne' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Khoa học máy tính' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -180,7 +167,7 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Fortune Towne' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Khoa học máy tính' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -189,7 +176,7 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Fortune Towne' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Khoa học máy tính' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -197,10 +184,10 @@
                    $edfdr = $row['COUNT(DISTINCT dr_name)'];
             }?>
 
-            <!-- Alijis -->
+            <!-- KTMT -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Alijis' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Kĩ thuật máy tính' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -209,7 +196,7 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Alijis' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Kĩ thuật máy tính' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -218,7 +205,7 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Alijis' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Kĩ thuật máy tính' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -226,10 +213,10 @@
                    $edadr = $row['COUNT(DISTINCT dr_name)'];
             }?>
 
-            <!-- Binalbagan -->
+            <!-- HTTT -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Binalbagan' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Hệ thống thông tin' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -238,7 +225,7 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Binalbagan' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Hệ thống thông tin' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
@@ -247,13 +234,42 @@
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Binalbagan' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Hệ thống thông tin' AND per_id<>0");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
                    $edbdr = $row['COUNT(DISTINCT dr_name)'];
             }?>
+            <!-- TT&MMT -->
+            <?php
+                include('connect.php');
+                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Truyền thông và mạng máy tính' AND per_id<>0");
+                    $display->execute();
+                    $fetch = $display->fetchAll();
+
+                foreach($fetch as $key => $row) { 
+                   $edbbs = $row['COUNT(DISTINCT bs_name)'];
+            }?>
+            <?php
+                include('connect.php');
+                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Truyền thông và mạng máy tính' AND per_id<>0");
+                    $display->execute();
+                    $fetch = $display->fetchAll();
+
+                foreach($fetch as $key => $row) { 
+                   $edbms = $row['COUNT(DISTINCT ms_name)'];
+            }?>
+            <?php
+                include('connect.php');
+                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Truyền thông và mạng máy tính' AND per_id<>0");
+                    $display->execute();
+                    $fetch = $display->fetchAll();
+
+                foreach($fetch as $key => $row) { 
+                   $edbdr = $row['COUNT(DISTINCT dr_name)'];
+            }?>
+            
 
 
         <script src="js/jquery.canvasjs.min.js"></script>
@@ -277,38 +293,38 @@
                     toolTipContent: "{label} <br/> {y}", 
                     indexLabel: "{y}", 
                     dataPoints: [ 
-                      { label: "Talisay",  y: 
+                      { label: "CNPM",  y: 
                         <?php 
                           if($talisay == ""){
                               echo 0;
                           }else{
                             echo $total;
                           }
-                        ?>, legendText: "Talisay"}, 
-                      { label: "Alijis",  y: 
+                        ?>, legendText: "Công nghệ phần mềm"}, 
+                      { label: "KHMT",  y: 
                         <?php 
                           if($alijis == ""){
                             echo 0;
                           }else{
                             echo $total1;
                           } 
-                        ?>, legendText: "Alijis"},
-                      { label: "Binalbagan",  y: 
+                        ?>, legendText: "Khoa học máy tính"},
+                      { label: "KTMT",  y: 
                         <?php 
                           if($binalbagan == ""){
                             echo 0;
                           }else{
                             echo $total2;
                           } 
-                        ?>, legendText: "Binalbagan"},
-                      { label: "Fortune Towne",  y: 
+                        ?>, legendText: "Kĩ thuật máy tính"},
+                      { label: "HTTT",  y: 
                         <?php 
                           if($fortunetowne == ""){
                             echo 0;
                           }else{
                           echo $total3;
                           }
-                        ?>, legendText: "Fortune Towne"}
+                        ?>, legendText: "Hệ thống thông tin"}
                     ] 
                   } 
                   ] 
@@ -320,7 +336,7 @@
         var chart1 = new CanvasJS.Chart("bar2chartContainer",
             {
               title:{
-                text: "Educational Qualification Per Campus"
+                text: ""
               },
               animationEnabled: true,
               legend: {
@@ -361,39 +377,53 @@
               {        
                 type: "bar",
                 showInLegend: true,
-                name: "Bachelor Degree",
+                name: "Giáo sư",
                 color: "#779ECB",
                 dataPoints: [
-                { y: <?php echo $edbbs; ?>, label: "Binalbagan"},        
-                { y: <?php echo $edabs; ?>, label: "Alijis"},              
-                { y: <?php echo $edfbs; ?>, label: "Fortune Towne"},
-                { y: <?php echo $edtbs; ?>, label: "Talisay"}
+                { y: <?php echo $edbbs; ?>, label: "KTMT"},        
+                { y: <?php echo $edabs; ?>, label: "KHMT"},              
+                { y: <?php echo $edfbs; ?>, label: "HTTT"},
+                { y: <?php echo $edtbs; ?>, label: "CNPM"}
                 ]
               },
               {        
                 type: "bar",
                 showInLegend: true,
-                name: "Masteral Degree",
+                name: "Phó Giáo Sư",
                 color: "#FF6961",          
                 dataPoints: [
-                { y: <?php echo $edbms; ?>, label: "Binalbagan"},        
-                { y: <?php echo $edams; ?>, label: "Alijis"},         
-                { y: <?php echo $edfms; ?>, label: "Fortune Towne"},
-                { y: <?php echo $edtms; ?>, label: "Talisay"}
+                { y: <?php echo $edbms; ?>, label: "KTMT"},        
+                { y: <?php echo $edams; ?>, label: "KHMT"},         
+                { y: <?php echo $edfms; ?>, label: "HTTT"},
+                { y: <?php echo $edtms; ?>, label: "CNPM"}
                 ]
               },
               {        
                 type: "bar",
                 showInLegend: true,
-                name: "Doctoral Degree",
+                name: "Tiến sĩ",
                 color: "#77DD77",
                 dataPoints: [
-                { y: <?php echo $edbdr; ?>, label: "Binalbagan"},    
-                { y: <?php echo $edadr; ?>, label: "Alijis"},              
-                { y: <?php echo $edfdr; ?>, label: "Fortune Towne"},
-                { y: <?php echo $edtdr; ?>, label: "Talisay"}
+                { y: <?php echo $edbdr; ?>, label: "KTMT"},    
+                { y: <?php echo $edadr; ?>, label: "KHMT"},              
+                { y: <?php echo $edfdr; ?>, label: "HTTT"},
+                { y: <?php echo $edtdr; ?>, label: "CNPM"}
+                ]
+              },
+              {        
+                type: "bar",
+                showInLegend: true,
+                name: "Thạc sĩ",
+                color: "brown",
+                dataPoints: [
+                { y: <?php echo $edbdr; ?>, label: "KTMT"},    
+                { y: <?php echo $edadr; ?>, label: "KHMT"},              
+                { y: <?php echo $edfdr; ?>, label: "HTTT"},
+                { y: <?php echo $edtdr; ?>, label: "CNPM"}
                 ]
               }
+              
+              
 
               ]
             });

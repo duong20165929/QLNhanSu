@@ -9,7 +9,7 @@
             <div class = "panel panel-primary">
                 <div class = "panel-heading">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>UPDATE GASS RANK</h4>
+                    <h4>C?p nh?t ch?c danh</h4>
                 </div>
             </div>
             <div class="modal-body">          

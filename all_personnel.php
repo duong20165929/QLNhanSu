@@ -1,4 +1,4 @@
-﻿<?php 
+<?php 
 include("header.php");
 ?>
  <section class="content">
@@ -43,9 +43,14 @@ include("header.php");
                                         <td>Bằng tiến sĩ</td>
                                         <td>Others</td>
                                         <td>Thâm niên</td>
+<!--                                        <td>Eligibility</td>
                                         <td>Plantilla Number</td>-->
                                         <td>Trạng thái công việc</td>
+<!--                                        <td>Tin Number</td>-->
+<!--                                        <td>Pag-ibig Number</td>-->
+<!--                                        <td>GSIS Number</td>-->
                                         <td>Bộ môn</td>
+<!--                                        <td>Action</td>-->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -103,6 +108,9 @@ include("header.php");
                                       <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
                                     </a>                                 
                                   </td>
+
+                                  <td><button class="btn btn-danger btn-sm remove" onclick="return deleletconfig()">Delete</button></td>
+                                                                                                         
                                 </tr>                           
                                      <?php 
                                      } ?>
@@ -116,6 +124,19 @@ include("header.php");
          </div>
     </div>
 </section>
+
+
+
+<script>
+function deleletconfig(){
+
+var del=confirm("Are you sure you want to delete this record?");
+if (del==true){
+    window.location.href="delete_personnel.php?per_id=<?php echo $row['per_id']?>";
+}
+return del;
+}
+</script>
 
    <script>
     function printDiv() {

@@ -15,12 +15,10 @@ foreach ($fetch as $key => $row) {
     $rank_name = $row['rank_name'];
     $gass_id = $row['gass_id'];
     $gass_name = $row['gass_name'];
-    $per_designation = $row['per_designation'];
+    $per_employee_status = $row['per_employee_status'];
     $per_campus = $row['per_campus'];
     $per_date_of_original_appointment = $row['per_date_of_original_appointment'];
-    $per_plantilla_no = $row['per_plantilla_no'];
     $per_contact_no = $row['per_contact_no'];
-    $per_eligibility = $row['per_eligibility'];
     $bs_name = $row['bs_name'];
     $bs_year = $row['bs_year'];
     $bs_school = $row['bs_school'];
@@ -47,7 +45,7 @@ foreach ($fetch as $key => $row) {
                     <div class="card">
                         <div class = "panel panel-primary">
                             <div class = "panel-heading">
-                                <h4>PERSONNEL INFORMATION</h4>
+                                <h4>Thông tin nhân sự</h4>
                             </div>
                         </div>
                         <div class="body">
@@ -59,7 +57,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-sm-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                FirstName:
+                                                Họ:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="per_firstname" placeholder="First Name" value="<?php echo $row['per_firstname']; ?> " >
@@ -70,7 +68,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-sm-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                MiddleName:
+                                                Tên đệm:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="per_middlename" placeholder="Middle Name" value="<?php echo $row['per_middlename']; ?>">
@@ -80,14 +78,14 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-sm-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                LastName:
+                                                Tên:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="per_lastname" placeholder="Last Name" value="<?php echo $row['per_lastname']; ?>">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+<!--                                    <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 Suffix:
@@ -97,13 +95,13 @@ foreach ($fetch as $key => $row) {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+-->                                    <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Sex:
+                                                Giới tính:
                                             </span>
                                             <select class="form-control show-tick" name="per_gender" value="<?php echo $row4['per_gender']; ?>" >
-                                                <option><?php echo $row['per_gender']; ?></option>
+                                                <!--<option><?php echo $row['per_gender']; ?></option>-->
                                                 <option>Male</option>
                                                 <option>Female</option>
                                             </select>
@@ -112,10 +110,10 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Status:
+                                                Tình trạng hôn nhân:
                                             </span>
                                             <select class="form-control show-tick" name="per_status">
-                                                <option><?php echo $row['per_status']; ?></option>
+                                                <!--<option><?php echo $row['per_status']; ?></option>-->
                                                 <option>Single</option>
                                                 <option>Married</option>
                                                 <option>Widowed</option>
@@ -126,7 +124,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Address:
+                                                Địa chỉ:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="per_address" placeholder="Other Name" value="<?php echo $row['per_address']; ?>" >
@@ -136,7 +134,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-8">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Place of Birth:
+                                                Nơi sinh:
                                             </span>
                                                 <div class="form-line">
                                                     <input type="text" class="form-control" name="per_place_of_birth" value="<?php echo $row['per_place_of_birth']; ?>">
@@ -146,37 +144,18 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Date of Birth:
+                                                Ngày sinh:
                                             </span>
                                                 <div class="form-line">
                                                     <input type="Date" class="form-control" name="per_date_of_birth" value="<?php echo $row['per_date_of_birth']; ?>">
                                                 </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                Designation:
-                                            </span>
-                                                <select class="form-control show-tick" name="pos_name">
-                                                    <option value="<?php echo $row['pos_id'] ?>"><?php echo $row['pos_name']; ?></option>
-                                                <?php
-                                                include("connect.php"); 
-                                               
-                                                $gass1 = $con->prepare("SELECT * FROM tbl_position ORDER BY pos_id ");
-                                                $gass1->execute();
-                                                while($row9 = $gass1->fetch()) {
-                                                ?>                  
-
-                                                    <option value="<?php echo $row9['pos_id']; ?>"><?php echo $row9['pos_name']; ?></option>
-                                                <?php }  ?>
-                                                </select>
-                                        </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Department:
+                                                Trường tốt nghiệp:
                                             </span>
                                                 <select class="form-control show-tick" name="dept_name">
                                                 <option value="<?php echo $row['dept_id']; ?> "><?php echo $dept_name; ?></option>
@@ -196,7 +175,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <span class="input-group-addon ">
-                                                Academic Rank:
+                                                Trình độ học vấn:
                                             </span>
                                                 <select class="form-control show-tick " name="rank" >
                                                 <option value="<?php echo $row['rank_id']; ?> "><?php echo $rank_name; ?></option>
@@ -216,7 +195,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                GASS Position:
+                                                Chức vụ:
                                             </span>
                                                 <select class="form-control show-tick " name="gass_name">
                                                 <option value="<?php echo $row['gass_id'] ?>"><?php echo $row['gass_name']; ?></option>
@@ -236,109 +215,58 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-4">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Employee Status:
+                                                Trạng thái công việc:
                                             </span>
-                                                <select class="form-control show-tick main" id = "privileges" name="per_designation" value="<?php echo $row['per_designation'];?>">
-                                                    <option><?php echo $per_designation; ?></option>
-                                                    <option value='Permanent'>Permanent</option>
-                                                    <option value='GASS'>GASS</option>
-                                                    <option value='Part Time'>Part Time</option>
-                                                    <option value='Job Order'>Job Order</option>
+                                                <select class="form-control show-tick main" id = "privileges" name="per_employee_status" value="<?php echo $row['per_employee_status'];?>">
+                                                    <option><?php echo $per_employee_status; ?>
+                                                    <option value='Bien che'>Bien che</option>
+                                                    <option value='Hop dong'>Hop dong</option>
+                                                    
                                                 </select>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Campus:
+                                                Bộ môn:
                                             </span>
                                                 <select class="form-control show-tick" name="per_campus" value="<?php echo $row['per_campus']; ?>">
                                                     <option><?php echo $per_campus; ?></option>
-                                                    <option>Talisay</option>
-                                                    <option>Fortune Towne</option>
-                                                    <option>Alijis</option>
-                                                    <option>Binalbagan</option>
+                                                    <option>Cong nghe phan mem</option>
+                                                    <option>He thong thong tin</option>
+                                                    <option>Khoa hoc may tinh</option>
+                                                    <option>Ki thuat may tinh</option>
                                                 </select>
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                            Date of Appointment:
+                                            Ngày bổ nhiệm:
                                             </span>
                                                 <div id="sandbox-container" class="form-line">
                                                     <input type="Date" class="form-control" name="per_date_of_original_appointment" value="<?php echo $per_date_of_original_appointment; ?>">
                                                 </div>
                                         </div>
                                     </div>
-                                     <div class="col-md-4">                                    
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                    Plantilla Number
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control " name="per_plantilla_no" value="<?php echo $per_plantilla_no; ?>" >
-                                                </div>
-                                        </div>
-                                    </div>
                                     <div class="col-md-4">                                    
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                    Mobile No.:
+                                                    Số điện thoại:
                                             </span>
                                                 <div class="form-line">
                                                     <input type="text" class="form-control" name="per_contact_no" id="contact_no" maxlength="22" value="<?php echo $per_contact_no; ?>">
                                                 </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                Eligibility:
-                                            </span>
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="per_eligibility" value="<?php echo $per_eligibility; ?>">
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                TIN No.:
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control key" name="per_tin_no" id="tin" value="<?php echo $per_tin_no; ?>" id = "tin">
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                GSIS BP No.:
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control key" name="per_gsis_bp_no" id="gsis" value="<?php echo $per_gsis_bp_no; ?>">
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                PAG-IBIG No.:
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control" name="per_pagibig_no" id="pagibig" maxlength="22" value="<?php echo $per_pagibig_no; ?>">
-                                                </div>
-                                        </div>
-                                    </div>
                                     <div class="col-md-12">
                                         <h3 class="page-header">Educational Attainment</h3> 
                                     </div>                
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Bachelor's Degree:
+                                                Bằng cử nhân:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="bs_name" value="<?php echo $bs_name; ?>">
@@ -348,7 +276,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Year:
+                                                Năm nhận:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="bs_year" value="<?php echo $bs_year; ?>">
@@ -358,7 +286,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-12">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                School:
+                                                Tại trường:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="bs_school" value="<?php echo $bs_school; ?>">
@@ -368,7 +296,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Master's Degree:
+                                                Bằng thạc sĩ:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="ms_name" value="<?php echo $ms_name; ?>">
@@ -378,7 +306,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                with:
+                                                Ngành:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="ms_with_unit" value="<?php echo $ms_with_unit; ?>">
@@ -388,7 +316,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Year:
+                                                Năm nhận:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="ms_year" value="<?php echo $ms_year; ?>">
@@ -398,7 +326,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-12">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                School:
+                                                Tại trường:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="ms_school" value="<?php echo $ms_school; ?>">
@@ -408,7 +336,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Doctorate Degree:
+                                                Bằng tiến sĩ:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="dr_name" value="<?php echo $dr_name; ?>">
@@ -418,7 +346,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                with:
+                                                Ngành:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="dr_with_unit" value="<?php echo $dr_with_unit; ?>">
@@ -428,7 +356,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Year:
+                                                Năm nhận:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="dr_year" value="<?php echo $dr_year; ?>">
@@ -438,7 +366,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-12">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                School:
+                                                Tại trường:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="dr_school" value="<?php echo $dr_school; ?>">
@@ -448,7 +376,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-9">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Other Degree:
+                                                Bằng khác:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="other_degree" value="<?php echo $other_degree; ?>">
@@ -458,7 +386,7 @@ foreach ($fetch as $key => $row) {
                                     <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                Year:
+                                                Năm nhận:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="other_year" value="<?php echo $other_year; ?>">
@@ -468,7 +396,7 @@ foreach ($fetch as $key => $row) {
                                      <div class="col-md-12">
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                School:
+                                                Tại trường:
                                             </span>
                                             <div class="form-line">
                                                 <input type="text" class="form-control" name="other_school" value="<?php echo $other_school; ?>">
@@ -496,21 +424,10 @@ foreach ($fetch as $key => $row) {
   <?php include("script.php"); ?>
     <script>
     var contanct_no = new Formatter (document.getElementById('contact_no'), {
-  'pattern': '+639 {{999}}-{{999}}-{{999}}',
+  'pattern': '+84 {{999}}-{{999}}-{{999}}',
   'persistent': true
   });
-    var pagibig = new Formatter (document.getElementById('pagibig'), {
-  'pattern': '{{999}}-{{999}}-{{999}}',
-  'persistent': true
-  });
-     var tin = new Formatter (document.getElementById('tin'), {
-  'pattern': '{{999}}-{{999}}-{{999}}',
-  'persistent': true
-});
-     var gsis = new Formatter (document.getElementById('gsis'), {
-  'pattern': '{{999}}-{{999}}-{{999}}',
-  'persistent': true
-});
+    
 </script>
     <script>
         function showImage(src,target) {

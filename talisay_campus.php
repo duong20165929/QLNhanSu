@@ -10,7 +10,7 @@ include("header.php");
                     <div class="card">
                         <div class = "panel panel-primary">
                             <div class = "panel-heading">
-                                <h4>TALISAY - PERSONNELS</h4>
+                                <h4>CNPM</h4>
                                 <a href="print_talisay_campus.php">
                                     <input type="button" value="Print" class="print">
                                 </a>
@@ -23,37 +23,33 @@ include("header.php");
                                 <thead>
                                     <tr>
                                         <td class="hidden">ID</td>
-                                        <td>Name</td>
-                                        <td>GASS/Academic Rank</td>
-                                        <td>Position/Title</td>
-                                        <td>Department</td>
-                                        <td>Age</td>
-                                        <td>Gender</td>
-                                        <td>Status</td>
-                                        <td>Address</td>
-                                        <td>Birthdate</td>
-                                        <td>Birthplace</td>
-                                        <td>Contact Number</td>
-                                        <td>Date of Original Appointment</td>
-                                        <td>Bachelor's Degree</td>
-                                        <td>Master's Degree</td>
-                                        <td>Doctorate Degree</td>
-                                        <td>Others</td>
-                                        <td>No. of Years in CHMSC</td>
-                                        <td>Eligibility</td>
-                                        <td>Plantilla Number</td>
-                                        <td>Employee Status</td>
-                                        <td>Tin Number</td>
-                                        <td>Pag-ibig Number</td>
-                                        <td>GSIS Number</td>
-                                        <td>Campus</td>
+                                        <td>Họ Tên</td>
+                                        <td>Chức vụ</td>
+                                        <td>Trình độ</td>
+                                        <td>Trường đã học</td>
+                                        <td>Tuổi</td>
+                                        <td>Giới tính</td>
+                                        <td>Tình trạng hôn nhân</td>
+                                        <td>Địa chỉ</td>
+                                        <td>Ngày sinh</td>
+                                        <td>Nơi sinh</td>
+                                        <td>SĐT</td>
+                                        <td>Ngày bổ nhiệm</td>
+                                        <td>Bằng cử nhân</td>
+                                        <td>Bằng thạc sĩ</td>
+                                        <td>Bằng tiến sĩ</td>  
+                                        <td>Thâm niên</td>  
+                                        <td>Bằng khác</td>
+                                        <td>Trạng thái công việc</td>
+                                        <td>Bộ môn</td>
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>
                                 <tr>
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_position ON tbl_personnel.pos_id=tbl_position.pos_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Talisay' ORDER BY per_id ASC");
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_position ON tbl_personnel.pos_id=tbl_position.pos_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Cong nghe phan mem' ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 
@@ -72,9 +68,9 @@ include("header.php");
 
                                   ?>
                                   <td class="hidden"><?php echo $row['per_id']; ?></td>
-                                  <td><?php echo $row['per_lastname'].", ".$row['per_firstname']." ".$row['per_middlename']; ?></td>
-                                  <td values="<?php echo $row['gass_id'].''.$row['rank_id'];?>"><?php echo $row['gass_name']." ".$row['gass_name']; ?></td>
-                                  <td values="<?php echo $row['pos_id'];?>"><?php echo $row['pos_name']; ?></td>
+                                  <td><?php echo $row['per_lastname']." ".$row['per_firstname']." ".$row['per_middlename']; ?></td>
+                                  <td values="<?php echo $row['gass_id'];?>"><?php echo $row['gass_name']; ?></td>
+                                  <td values="<?php echo $row['rank_id'];?>"><?php echo $row['rank_name']; ?></td>
                                   <td values="<?php echo $row['dept_id'];?>"><?php echo $row['dept_name']; ?></td>
                                   <td><?php echo $difference;?></td>
                                   <td><?php echo $row['per_gender']; ?></td>
@@ -89,12 +85,7 @@ include("header.php");
                                   <td><?php echo $row['dr_name']; ?></td>
                                   <td><?php echo $length?></td>
                                   <td><?php echo $row['other_degree']; ?></td>
-                                  <td><?php echo $row['per_eligibility']; ?></td>
-                                  <td><?php echo $row['per_plantilla_no']; ?></td>
                                   <td><?php echo $row['per_designation']; ?></td>
-                                  <td><?php echo $row['per_tin_no']; ?></td>
-                                  <td><?php echo $row['per_pagibig_no']; ?></td>
-                                  <td><?php echo $row['per_gsis_bp_no']; ?></td>
                                   <td><?php echo $row['per_campus'];?></td>
                                   
                                 </tr>                           

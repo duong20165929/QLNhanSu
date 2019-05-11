@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 include("header.php");
 ?>
  <section class="content">
@@ -43,14 +43,9 @@ include("header.php");
                                         <td>Bằng tiến sĩ</td>
                                         <td>Others</td>
                                         <td>Thâm niên</td>
-<!--                                        <td>Eligibility</td>
                                         <td>Plantilla Number</td>-->
                                         <td>Trạng thái công việc</td>
-<!--                                        <td>Tin Number</td>-->
-<!--                                        <td>Pag-ibig Number</td>-->
-<!--                                        <td>GSIS Number</td>-->
                                         <td>Bộ môn</td>
-<!--                                        <td>Action</td>-->
                                     </tr>
                                 </thead>
                                 <tbody>

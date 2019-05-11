@@ -49,19 +49,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-<!--                                                Suffix:
-                                            </span>
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="per_suffix" placeholder="jr/sr">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-md-3">
                                         <div class="input-group">
-                                            <span class="input-group-addon">-->
+                                            <span class="input-group-addon">
                                                 Giới tính:
                                             </span>
                                                 <select class="form-control show-tick" name="per_gender">
@@ -118,24 +108,7 @@
                                         </div>
                                     </div>
                                     
-                                     <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                Designation:
-                                            </span>
-                                                <select class="form-control show-tick" name="per_position"> 
-                                                <option></option>
-                                                <?php
-                                                include("connect.php"); 
-                                                $pos1 = $con->prepare("SELECT * FROM tbl_position ORDER BY pos_id");
-                                                $pos1->execute();
-                                                while($row1 = $pos1->fetch()) {
-                                                        $pos_name = $row1['pos_name'];
-                                                ?>
-                                                    <option value="<?php echo $row1['pos_id']; ?>"><?php echo $row1['pos_name']; ?></option>
-                                                <?php } ?>
-                                                </select>
-                                        </div>
+
                                     </div>
                                     <div class="col-md-4">
                                         <div class="input-group">
@@ -202,8 +175,6 @@
                                                 <select class="form-control show-tick main" id = "privileges" name="per_employee_status">
                                                     <option></option>
                                                     <option value='Bien che'>Bien che</option>
-                                                
-                                                    
                                                     <option value='Hop dong'>Hop dong</option>
                                                 </select>
                                         </div>
@@ -243,58 +214,6 @@
                                                 </div>
                                         </div>
                                     </div>
-                                     <div class="col-md-4">                                    
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-<!--                                                    Plantilla Number
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control " name="per_plantilla_no" >
-                                                </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                Eligibility:
-                                            </span>
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="per_eligibility" placeholder="Eligibility">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                TIN No.:
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control key" name="per_tin_no" id="tin" placeholder="Ex: XXX-XXX-XXX" id = "tin">
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                GSIS BP No.:
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control key" name="per_gsis_bp_no" id="gsis" placeholder="Ex: XXX-XXX-XXX">
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                PAG-IBIG No.:
-                                            </span>
-                                                <div class="form-line">
-                                                    <input type="text" class="form-control" name="per_pagibig_no" id="pagibig" maxlength="22" placeholder="e.g. XXX-XXX-XXX">
-                                                </div>
-                                        </div>
-                                    </div>-->
                                     <div class="col-md-12">
                                         <h3 class="page-header">Educational Attainment</h3> 
                                     </div>                

@@ -5,17 +5,17 @@
                 <div class = "panel panel-primary">
                     <div class = "panel-heading">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4>Thêm bộ phận</h4>
+                        <h4>Thêm </h4>
                     </div>
                 </div>
                 <form action="add_department_query.php" method="POST">
                     <div class="modal-body">
                         <div class="input-group">
                             <span class="input-group-addon">
-                            Tên bộ phận:
+                            Tên :
                             </span>
                             <div class="form-line">
-                                <input type="text" class="form-control" name="dept_name" placeholder="Department Name" required>
+                                <input type="text" class="form-control" name="dept_name" placeholder="Trường" required>
                             </div>
                         </div>
                     </div>

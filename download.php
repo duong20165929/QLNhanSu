@@ -22,7 +22,7 @@ if ($fd = fopen($fullPath, "rb")) {
         header("Content-Disposition: filename=\"".$path_parts["basename"]."\""); 
     } 
     header("Content-length: $fsize"); 
-    header("Cache-control: private"); //use this to open files directly 
+    header("Cache-control: private"); //su dung de mo file
     while(!feof($fd)) { 
         $buffer = fread($fd, 2048); 
         echo $buffer; 

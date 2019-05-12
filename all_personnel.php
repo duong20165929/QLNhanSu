@@ -102,7 +102,11 @@ include("header.php");
                                       <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
                                     </a>                                 
                                   </td>
-                                  <td><button class="btn btn-danger btn-sm remove" onclick="return deleletconfig()">Delete</button></td>
+                                  <td>     
+                                    <a class="btn btn-warning btn-sm" href="delete_personnel.php?per_id=<?php echo $row['per_id']?>">
+                                      <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Delete</span>
+                                    </a>                                 
+                                  </td>
                                 </tr>                           
                                      <?php 
                                      } ?>
@@ -116,16 +120,8 @@ include("header.php");
          </div>
     </div>
 </section>
-<script>
-function deleletconfig(){
 
-var del=confirm("Are you sure you want to delete this record?");
-if (del==true){
-    window.location.href="delete_personnel.php?per_id=<?php echo $row['per_id']?>";
 }
-return del;
-}
-</script>
    <script>
     function printDiv() {
         //Get the HTML of div

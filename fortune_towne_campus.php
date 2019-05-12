@@ -11,7 +11,7 @@ include("header.php");
                         <div class = "panel panel-primary">
                             <div class = "panel-heading">
                                 <h4>HỆ THỐNG THÔNG TIN</h4>
-                                <a href="print_talisay_campus.php">
+                                <a href="print_fortune_towne_campus.php">
                                     <input type="button" value="Print" class="print">
                                 </a>
                             </div>
@@ -49,12 +49,12 @@ include("header.php");
                                 <tr>
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Hệ thống thông tin' ORDER BY per_id ASC");
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'He thong thong tin' ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 
                                       foreach($fetch as $key => $row) { 
-                                        $pos_id = $row['pos_id'];
+              
                                         $bday = $row["per_date_of_birth"];
                                         $dooa = $row["per_date_of_original_appointment"];
                                         $date = new DateTime($bday);
@@ -68,7 +68,7 @@ include("header.php");
 
                                   ?>
                                   <td class="hidden"><?php echo $row['per_id']; ?></td>
-                                  <td><?php echo $row['per_lastname']." ".$row['per_middlename']." ".$row['per_firstname']; ?></td>
+                                  <td><?php echo $row['per_lastname']." ".$row['per_firstname']." ".$row['per_middlename']; ?></td>
                                   <td values="<?php echo $row['gass_id'];?>"><?php echo $row['gass_name']; ?></td>
                                   <td values="<?php echo $row['rank_id'];?>"><?php echo $row['rank_name']; ?></td>
                                   <td values="<?php echo $row['dept_id'];?>"><?php echo $row['dept_name']; ?></td>
@@ -85,7 +85,7 @@ include("header.php");
                                   <td><?php echo $row['dr_name']; ?></td>
                                   <td><?php echo $length?></td>
                                   <td><?php echo $row['other_degree']; ?></td>
-                                  <td><?php echo $row['per_designation']; ?></td>
+                                  <td><?php echo $row['per_employee_status']; ?></td>
                                   <td><?php echo $row['per_campus'];?></td>
                                   
                                 </tr>                           

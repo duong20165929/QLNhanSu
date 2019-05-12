@@ -13,7 +13,7 @@ include("header.php");
                                 <h4>SỐ HỢP ĐỒNG TRÊN MỖI BỘ MÔN</h4>
                                 <form action="" method="POST">
                                     Từ năm : <input type="text" name="d1" placeholder="Năm" style="color: #000;"> 
-                                    Đến: <input type="text" name="d2" placeholder="Năm" style="color: #000;"> 
+                                    Đến : <input type="text" name="d2" placeholder="Năm" style="color: #000;">  
                                     <input type="submit" value="Search" name="filter" style="color: #000;">
                                 </form>
                                 <a href="print_job_order_per_campus.php">
@@ -38,7 +38,7 @@ include("header.php");
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $afilter = $con->prepare("SELECT COUNT(per_employee_status) as khmt FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'");
+                                    $afilter = $con->prepare("SELECT COUNT(per_employee_status) as khmt FROM `tbl_personnel` WHERE YEAR(date_modified) >= '$d1' AND  per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'");
                                         $afilter->execute();
                                         $afetch = $afilter->fetchAll();
 

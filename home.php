@@ -10,7 +10,7 @@
                         <div class="content">
                               <?php
                                 include('connect.php');
-                                 $permanent = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'Biên chế'");
+                                 $permanent = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_employee_status = 'Biên Chế'");
                                     $permanent->execute();
                                     $fetch = $permanent->fetchAll();
 
@@ -33,7 +33,7 @@
                         <div class="content">
                             <?php
                                 include('connect.php');
-                                 $jobOrder = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = 'Hợp đồng'");
+                                 $jobOrder = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_employee_status = 'Hợp đồng'");
                                     $jobOrder->execute();
                                     $fetch3 = $jobOrder->fetchAll();
 
@@ -86,7 +86,7 @@
             }?>
 
 
-        <!-- Fortune Towne -->
+
           <?php
           $qftown = $con->prepare("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Hệ thống thông tin'") or die(mysqli_error());
           $qftown->execute();
@@ -95,14 +95,7 @@
            $total3 = $row["COUNT('per_campus')"];
 
             }?>
-        <?php
-          $qftown = $con->prepare("SELECT COUNT('per_campus') FROM `tbl_personnel` WHERE `per_campus` = 'Truyền thông và mạng máy tính'") or die(mysqli_error());
-          $qftown->execute();
-          $fortunetowne = $qftown->fetchAll();
-          foreach($fortunetowne as $key => $row) { 
-           $total3 = $row["COUNT('per_campus')"];
-
-            }?>
+        
         
 
             <!-- Educational Qualification -->

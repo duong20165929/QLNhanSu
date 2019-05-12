@@ -9,8 +9,8 @@
         <input id="btnExport" type="button" value="Export to Excel" style="float: right; margin-top: 30px; margin-right: -86px;">
         <form action="" method="POST">
             <div class="filter-date" style="float: left; margin-top: -21px; margin-right: 108px">
-            Từ năm : <input type="text" name="d1" placeholder="Năm" style="color: #000;"> 
-            Đến: <input type="text" name="d2" placeholder="Năm" style="color: #000;"> 
+                Từ năm : <input type="text" name="d1" placeholder="Năm" style="color: #000;"> 
+                Đến: <input type="text" name="d2" placeholder="Năm" style="color: #000;"> 
             <input type="submit" value="Search" name="filter" style="color: #000;">
             </div>
         &nbsp;&nbsp;
@@ -20,7 +20,7 @@
                 $d1 = $_POST['d1'];
                 $d2 = $_POST['d2'];
 
-              
+                
             ?>
     </div>
     <div ng-app="myApp" ng-controller="myCtrl">
@@ -58,7 +58,7 @@
             <center>Liên hệ: (+84) 4 3869 2463</center>
             <br />
             <center><strong>TỔNG SỐ HỢP ĐỒNG</strong></center>
-            <center><strong>Năm: từ <?php echo $d1 ." đến ". $d2; ?></strong></center>
+            <center><strong>Từ năm <?php echo $d1 ." đến ". $d2; ?></strong></center>
         </div>
         <br />
         <br />

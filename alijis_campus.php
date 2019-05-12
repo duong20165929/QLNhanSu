@@ -49,7 +49,7 @@ include("header.php");
                                 <tr>
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Khoa học máy tính' ORDER BY per_id ASC");
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Khoa hoc may tinh' ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 

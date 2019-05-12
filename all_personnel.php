@@ -52,14 +52,13 @@ include("header.php");
                                 
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel"
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel "
                                             . "LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id "
                                             . "LEFT JOIN tbl_department ON tbl_personnel.dept_id = tbl_department.dept_id ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 
                                       foreach($fetch as $key => $row) { 
-                                       
                                         $gass_id = $row['gass_id'];
                                         $rank_id = $row['rank_id'];
                                         $bday = $row["per_date_of_birth"];
@@ -103,9 +102,7 @@ include("header.php");
                                       <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
                                     </a>                                 
                                   </td>
-
                                   <td><button class="btn btn-danger btn-sm remove" onclick="return deleletconfig()">Delete</button></td>
-                                                                                                         
                                 </tr>                           
                                      <?php 
                                      } ?>
@@ -119,9 +116,6 @@ include("header.php");
          </div>
     </div>
 </section>
-
-
-
 <script>
 function deleletconfig(){
 
@@ -132,7 +126,6 @@ if (del==true){
 return del;
 }
 </script>
-
    <script>
     function printDiv() {
         //Get the HTML of div

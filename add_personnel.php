@@ -187,7 +187,7 @@
                                             </span>
                                                 <select class="form-control show-tick" name="per_campus">
                                                     <option></option>
-                                                    <option>Công nghệ phần mềm</option>
+                                                    <option>Công nghệ phần mêm</option>
                                                     <option>Hệ thống thông tin</option>
                                                     <option>Khoa học máy tính</option>
                                                     <option>Kĩ thuật máy tính</option>
@@ -215,7 +215,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <h3 class="page-header">TRÌNH ĐỘ ĐÃ ĐẠT</h3> 
+                                        <h3 class="page-header">Trình độ đã đạt</h3> 
                                     </div>                
                                     <div class="col-md">
                                         <div class="input-group">

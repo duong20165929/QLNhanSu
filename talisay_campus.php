@@ -49,12 +49,12 @@ include("header.php");
                                 <tr>
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Công nghệ phần mềm' ORDER BY per_id ASC");
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Cong nghe phan mem' ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 
                                       foreach($fetch as $key => $row) { 
-               
+              
                                         $bday = $row["per_date_of_birth"];
                                         $dooa = $row["per_date_of_original_appointment"];
                                         $date = new DateTime($bday);
@@ -85,7 +85,7 @@ include("header.php");
                                   <td><?php echo $row['dr_name']; ?></td>
                                   <td><?php echo $length?></td>
                                   <td><?php echo $row['other_degree']; ?></td>
-                                  <td><?php echo $row['per_designation']; ?></td>
+                                  <td><?php echo $row['per_employee_status']; ?></td>
                                   <td><?php echo $row['per_campus'];?></td>
                                   
                                 </tr>                           

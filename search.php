@@ -12,5 +12,5 @@ while($row = $query->fetch()){
 	$data[] = $row['per_firstname'];
 }
 //return json data
-echo json_encode($data);
+echo json_encode($data);}
 ?>

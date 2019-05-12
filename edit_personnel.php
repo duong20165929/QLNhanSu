@@ -59,8 +59,8 @@ foreach ($fetch as $key => $row) {
                                                 Họ:
                                             </span>
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="per_firstname" placeholder="First Name" value="<?php echo $row['per_firstname']; ?> " >
-                                                <input type="hidden" class="form-control" name="per_id" placeholder="First Name" value="<?php echo $row['per_id']; ?>">
+                                                <input type="text" class="form-control" name="per_lastname" placeholder="Last Name" value="<?php echo $row['per_lastname']; ?> " >
+                                                <input type="hidden" class="form-control" name="per_id" placeholder="Last Name" value="<?php echo $row['per_id']; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -80,19 +80,19 @@ foreach ($fetch as $key => $row) {
                                                 Tên:
                                             </span>
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="per_lastname" placeholder="Last Name" value="<?php echo $row['per_lastname']; ?>">
+                                                <input type="text" class="form-control" name="per_firstname" placeholder="First Name" value="<?php echo $row['per_firstname']; ?>">
                                             </div>
                                         </div>
                                     </div>
-									<div class="col-md-3">
+                                    <div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 Giới tính:
                                             </span>
                                             <select class="form-control show-tick" name="per_gender" value="<?php echo $row4['per_gender']; ?>" >
-                                                <!--<option><?php echo $row['per_gender']; ?></option>-->
-                                                <option>Male</option>
-                                                <option>Female</option>
+                                                <option><?php echo $row['per_gender']; ?></option>
+                                                <option>Nam</option>
+                                                <option>Nữ</option>
                                             </select>
                                         </div>
                                     </div>

@@ -74,13 +74,12 @@
 <body class="theme-red">
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Top Bar -->
     <div style="width: 100%;height: 70px;background-color: #0B0B3B;">
         <a href="home.php">
             <span class = "navbar-brand"><p style="text-align: center;"><img src="images/logo.jpg" style="display: inline-block;" width="30" height="50"> ĐẠI HỌC BÁCH KHOA HÀ NỘI - HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY</p></span>
         </a>
     </div>
+   
     <!-- #Top Bar -->
     <section>
         <!-- Left Sidebar -->
@@ -88,7 +87,7 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">Tùy Chọn</li>
+                    <li class="header"><p style="text-align: center;"><img src="images/logovien.jpg" style="display: inline-block;" width="20" height="20"> Viện Công Nghệ Thông Tin và Truyền Thông</p></li>
                     <li>
                         <a href="home.php">
                             <i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Trang chủ
@@ -211,7 +210,6 @@
 
             <?php include("add_rank_modal.php"); ?>
             <?php include("add_department_modal.php"); ?>
-
 
 
 

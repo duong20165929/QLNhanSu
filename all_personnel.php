@@ -43,28 +43,23 @@ include("header.php");
                                         <td>Bằng tiến sĩ</td>
                                         <td>Others</td>
                                         <td>Thâm niên</td>
-<!--                                        <td>Eligibility</td>
-                                        <td>Plantilla Number</td>-->
                                         <td>Trạng thái công việc</td>
-<!--                                        <td>Tin Number</td>-->
-<!--                                        <td>Pag-ibig Number</td>-->
-<!--                                        <td>GSIS Number</td>-->
                                         <td>Bộ môn</td>
-<!--                                        <td>Action</td>-->
+                                        <td>Action</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_position ON tbl_personnel.pos_id =tbl_position.pos_id "
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel"
                                             . "LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id "
                                             . "LEFT JOIN tbl_department ON tbl_personnel.dept_id = tbl_department.dept_id ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 
                                       foreach($fetch as $key => $row) { 
-                                        $pos_id = $row['pos_id'];
+                                       
                                         $gass_id = $row['gass_id'];
                                         $rank_id = $row['rank_id'];
                                         $bday = $row["per_date_of_birth"];
@@ -81,7 +76,7 @@ include("header.php");
                                   ?>
                                   <tr>
                                   <td class="hidden"><?php echo $row['per_id']; ?></td>
-                                  <td><?php echo $row['per_lastname']." ".$row['per_firstname']." ".$row['per_middlename']; ?></td>
+                                  <td><?php echo $row['per_lastname']." ".$row['per_middlename']." ".$row['per_firstname']; ?></td>
                                   <td values="<?php echo $row['gass_id']; ?>"><?php echo $row['gass_name']; ?></td>
                                   <td values="<?php echo $row['rank_id']; ?>"><?php echo $row['rank_name']; ?></td>
                                   <td values="<?php echo $row['dept_id']; ?>"><?php echo $row['dept_name']; ?></td>

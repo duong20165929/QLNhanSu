@@ -25,7 +25,7 @@
                                                 Họ:
                                             </span>
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="per_firstname" placeholder="Họ">
+                                                <input type="text" class="form-control" name="per_lastname" placeholder="Họ">
                                             </div>
                                         </div>
                                     </div>
@@ -45,7 +45,7 @@
                                                 Tên:
                                             </span>
                                             <div class="form-line">
-                                                <input type="text" class="form-control" name="per_lastname" placeholder="Tên">
+                                                <input type="text" class="form-control" name="per_firstname" placeholder="Tên">
                                             </div>
                                         </div>
                                     </div>
@@ -56,8 +56,8 @@
                                             </span>
                                                 <select class="form-control show-tick" name="per_gender">
                                                     <option></option>
-                                                    <option>Male</option>
-                                                    <option>Female</option>
+                                                    <option>Nam</option>
+                                                    <option>Nữ</option>
                                                 </select>
                                         </div>
 
@@ -69,10 +69,10 @@
                                             </span>
                                                 <select class="form-control show-tick" name="per_status">
                                                     <option></option>
-                                                    <option>Single</option>
-                                                    <option>Married</option>
-                                                    <option>Widowed</option>
-                                                    <option>Seperated</option>
+                                                    <option>Độc thân</option>
+                                                    <option>Đã kết hôn</option>
+                                                    <option>Góa</option>
+                                                    <option>Đã ly hôn</option>
                                                 </select>
                                         </div>
                                         
@@ -174,8 +174,8 @@
                                             </span>
                                                 <select class="form-control show-tick main" id = "privileges" name="per_employee_status">
                                                     <option></option>
-                                                    <option value='Bien che'>Bien che</option>
-                                                    <option value='Hop dong'>Hop dong</option>
+                                                    <option value='Biên chế'>Biên chế</option>
+                                                    <option value='Hợp đồng'>Hợp đồng</option>
                                                 </select>
                                         </div>
                                     </div>
@@ -187,10 +187,10 @@
                                             </span>
                                                 <select class="form-control show-tick" name="per_campus">
                                                     <option></option>
-                                                    <option>Cong nghe phan mem</option>
-                                                    <option>He thong thong tin</option>
-                                                    <option>Khoa hoc may tinh</option>
-                                                    <option>Ki thuat may tinh</option>
+                                                    <option>Công nghệ phần mềm</option>
+                                                    <option>Hệ thống thông tin</option>
+                                                    <option>Khoa học máy tính</option>
+                                                    <option>Kĩ thuật máy tính</option>
                                                 </select>
                                         </div>
                                     </div>
@@ -215,7 +215,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <h3 class="page-header">Educational Attainment</h3> 
+                                        <h3 class="page-header">TRÌNH ĐỘ ĐÃ ĐẠT</h3> 
                                     </div>                
                                     <div class="col-md">
                                         <div class="input-group">

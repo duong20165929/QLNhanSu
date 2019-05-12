@@ -1,5 +1,5 @@
 <?php 
-define("PATH", "/profiling system/");
+define("PATH", "/qlns/");
 
 $test = "set";
 $_POST["dirname"] = "test";

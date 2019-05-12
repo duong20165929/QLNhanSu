@@ -12,8 +12,8 @@ include("header.php");
                             <div class = "panel-heading">
                                 <h4>SỐ HỢP ĐỒNG TRÊN MỖI BỘ MÔN</h4>
                                 <form action="" method="POST">
-                                    Từ ngày : <input type="date" name="d1" style="color: #000;"> 
-                                    Đến: <input type="date" name="d2" style="color: #000;"> 
+                                    Từ năm : <input type="text" name="d1" placeholder="Năm" style="color: #000;"> 
+                                    Đến: <input type="text" name="d2" placeholder="Năm" style="color: #000;"> 
                                     <input type="submit" value="Search" name="filter" style="color: #000;">
                                 </form>
                                 <a href="print_job_order_per_campus.php">
@@ -38,7 +38,7 @@ include("header.php");
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $afilter = $con->prepare("SELECT COUNT(per_employee_status) as khmt FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'");
+                                    $afilter = $con->prepare("SELECT COUNT(per_employee_status) as khmt FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'");
                                         $afilter->execute();
                                         $afetch = $afilter->fetchAll();
 
@@ -49,7 +49,7 @@ include("header.php");
                                         //MS TOTAL
                                         //MS TOTAL
                                         //MS TOTAL
-                                    $tfilter = $con->prepare("SELECT COUNT(per_employee_status) as cnpm FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Công nghệ phần mềm' AND per_employee_status = 'Hợp đồng'");
+                                    $tfilter = $con->prepare("SELECT COUNT(per_employee_status) as cnpm FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Công nghệ phần mềm' AND per_employee_status = 'Hợp đồng'");
                                     $tfilter->execute();
                                     $tfetch = $tfilter->fetchAll();
 
@@ -59,7 +59,7 @@ include("header.php");
                                             //DR QUERY
                                             //DR QUERY
                                             //DR QUERY
-                                    $bfilter = $con->prepare("SELECT COUNT(per_employee_status) as ktmt FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Kĩ thuật máy tính' AND per_employee_status = 'Hợp đồng'");
+                                    $bfilter = $con->prepare("SELECT COUNT(per_employee_status) as ktmt FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Kĩ thuật máy tính' AND per_employee_status = 'Hợp đồng'");
                                     
                                         $bfilter->execute();
                                         $bfetch = $bfilter->fetchAll();
@@ -68,7 +68,7 @@ include("header.php");
                                             $ktmt = $row2['ktmt'];
 
 
-                                        $ftfilter = $con->prepare("SELECT COUNT(per_employee_status) as httt FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Hệ thống thông tin' AND per_employee_status = 'Hợp đồng'");
+                                        $ftfilter = $con->prepare("SELECT COUNT(per_employee_status) as httt FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Hệ thống thông tin' AND per_employee_status = 'Hợp đồng'");
                                     
                                         $ftfilter->execute();
                                         $ftfetch = $ftfilter->fetchAll();

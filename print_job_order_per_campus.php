@@ -9,8 +9,8 @@
         <input id="btnExport" type="button" value="Export to Excel" style="float: right; margin-top: 30px; margin-right: -86px;">
         <form action="" method="POST">
             <div class="filter-date" style="float: left; margin-top: -21px; margin-right: 108px">
-            From : <input type="date" name="d1" style="color: #000;"> 
-            To: <input type="date" name="d2" style="color: #000;"> 
+            Từ năm : <input type="text" name="d1" placeholder="Năm" style="color: #000;"> 
+            Đến: <input type="text" name="d2" placeholder="Năm" style="color: #000;"> 
             <input type="submit" value="Search" name="filter" style="color: #000;">
             </div>
         &nbsp;&nbsp;
@@ -20,8 +20,7 @@
                 $d1 = $_POST['d1'];
                 $d2 = $_POST['d2'];
 
-                $d11 = date("F j, Y", strtotime($d1));
-                $d21 = date("F j, Y", strtotime($d2));
+              
             ?>
     </div>
     <div ng-app="myApp" ng-controller="myCtrl">
@@ -59,7 +58,7 @@
             <center>Liên hệ: (+84) 4 3869 2463</center>
             <br />
             <center><strong>TỔNG SỐ HỢP ĐỒNG</strong></center>
-            <center><strong>Day: from <?php echo $d11 ." to ". $d21; ?></strong></center>
+            <center><strong>Năm: từ <?php echo $d1 ." đến ". $d2; ?></strong></center>
         </div>
         <br />
         <br />
@@ -75,7 +74,7 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $afilter = $con->prepare("SELECT COUNT(per_employee_status) as khmt FROM `tbl_personnel` WHERE per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'");
+                                    $afilter = $con->prepare("SELECT COUNT(per_employee_status) as khmt FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'");
                                         $afilter->execute();
                                         $afetch = $afilter->fetchAll();
 
@@ -86,7 +85,7 @@
                                         //MS TOTAL
                                         //MS TOTAL
                                         //MS TOTAL
-                                    $tfilter = $con->prepare("SELECT COUNT(per_employee_status) as cnpm FROM `tbl_personnel` WHERE per_campus = 'Công nghệ phần mềm' AND per_employee_status = 'Hợp đồng'");
+                                    $tfilter = $con->prepare("SELECT COUNT(per_employee_status) as cnpm FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Công nghệ phần mềm' AND per_employee_status = 'Hợp đồng'");
                                     $tfilter->execute();
                                     $tfetch = $tfilter->fetchAll();
 
@@ -96,7 +95,7 @@
                                             //DR QUERY
                                             //DR QUERY
                                             //DR QUERY
-                                    $bfilter = $con->prepare("SELECT COUNT(per_employee_status) as ktmt FROM `tbl_personnel` WHERE per_campus = 'Kĩ thuật máy tính' AND per_employee_status = 'Hợp đồng'");
+                                    $bfilter = $con->prepare("SELECT COUNT(per_employee_status) as ktmt FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Kĩ thuật máy tính' AND per_employee_status = 'Hợp đồng'");
                                     
                                         $bfilter->execute();
                                         $bfetch = $bfilter->fetchAll();
@@ -105,7 +104,7 @@
                                             $ktmt = $row2['ktmt'];
 
 
-                                        $ftfilter = $con->prepare("SELECT COUNT(per_employee_status) as httt FROM `tbl_personnel` WHERE per_campus = 'Hệ thống thông tin' AND per_employee_status = 'Hợp đồng'");
+                                        $ftfilter = $con->prepare("SELECT COUNT(per_employee_status) as httt FROM `tbl_personnel` WHERE YEAR(date_modified) BETWEEN '$d1' AND '$d2' AND per_campus = 'Hệ thống thông tin' AND per_employee_status = 'Hợp đồng'");
                                     
                                         $ftfilter->execute();
                                         $ftfetch = $ftfilter->fetchAll();

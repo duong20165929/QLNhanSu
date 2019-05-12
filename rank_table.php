@@ -42,6 +42,12 @@ include("header.php");
                                         <td>
                                          <?php include('edit_rank.php'); ?>
                                         </td>
+
+                                        <td>                                       
+                                  <a class="btn btn-danger btn-sm" href="delete_rank.php?rank_id=<?php echo $row['rank_id']?>">
+                                      <span class = "glyphicon glyphicon-remove" aria-hidden = "true">Delete</span>
+                                    </a>     
+                                    </td>
                                     </tr>                                      
                                      <?php 
                                      }?>

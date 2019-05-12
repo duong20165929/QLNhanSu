@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2019 at 05:35 PM
+-- Generation Time: May 12, 2019 at 04:56 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `hrm`
 --
-CREATE DATABASE IF NOT EXISTS `hrm` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `hrm`;
 
 -- --------------------------------------------------------
 
@@ -102,8 +100,6 @@ CREATE TABLE `tbl_files` (
   `date_uploaded` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
-
 -- --------------------------------------------------------
 
 --
@@ -149,9 +145,8 @@ CREATE TABLE `tbl_personnel` (
   `per_place_of_birth` varchar(150) CHARACTER SET utf8 NOT NULL,
   `per_date_of_original_appointment` date NOT NULL,
   `per_campus` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `dept_id` int(3) NOT NULL,
   `per_employee_status` varchar(50) CHARACTER SET utf8 NOT NULL,
-  `promote_id` int(5) NOT NULL,
+  `dept_id` int(5) NOT NULL,
   `per_contact_no` varchar(20) CHARACTER SET utf8 NOT NULL,
   `rank_id` int(3) NOT NULL,
   `bs_name` varchar(50) CHARACTER SET utf8 NOT NULL,
@@ -177,11 +172,10 @@ CREATE TABLE `tbl_personnel` (
 -- Dumping data for table `tbl_personnel`
 --
 
-INSERT INTO `tbl_personnel` (`per_id`, `per_firstname`, `per_middlename`, `per_lastname`, `pos_id`, `per_gender`, `per_status`, `per_address`, `per_date_of_birth`, `per_place_of_birth`, `per_date_of_original_appointment`, `per_campus`, `dept_id`, `per_employee_status`, `promote_id`, `per_contact_no`, `rank_id`, `bs_name`, `bs_year`, `bs_school`, `ms_name`, `ms_with_unit`, `ms_year`, `ms_school`, `dr_name`, `dr_year`, `dr_with_unit`, `dr_school`, `other_degree`, `other_year`, `other_school`, `per_image`, `date_modified`, `gass_id`) VALUES
-(187, 'Cường', ' Xuân ', 'Chu', 0, 'Nam', 'Độc thân', 'Hà Nội', '1998-12-07', 'Bắc Giang', '2016-01-01', 'Công nghệ phần mêm', 'Hợp đồng', 2, '+84565-656-654', 9, '', 0000, '', 'Thạc sĩ khoa học', 'Công nghệ th', 2014, 'HUST', '', 0000, '', '', '', 0000, '', '', '2019-05-12', 43),
+INSERT INTO `tbl_personnel` (`per_id`, `per_firstname`, `per_middlename`, `per_lastname`, `pos_id`, `per_gender`, `per_status`, `per_address`, `per_date_of_birth`, `per_place_of_birth`, `per_date_of_original_appointment`, `per_campus`, `per_employee_status`, `dept_id`, `per_contact_no`, `rank_id`, `bs_name`, `bs_year`, `bs_school`, `ms_name`, `ms_with_unit`, `ms_year`, `ms_school`, `dr_name`, `dr_year`, `dr_with_unit`, `dr_school`, `other_degree`, `other_year`, `other_school`, `per_image`, `date_modified`, `gass_id`) VALUES
+(187, 'Cường', ' Xuân ', 'Chu    ', 0, 'Nam', 'Độc thân', 'Hà Nội', '1998-12-07', 'Bắc Giang', '2016-01-01', 'Công nghệ phần mêm', 'Hợp đồng', 2, '+84 565-656-654', 1, '', 0000, '', 'Thạc sĩ khoa học', 'Công nghệ th', 2014, 'HUST', 'Thạc sĩ khoa học', 0000, '', '', '', 0000, '', '', '2019-05-12', 1),
 (188, 'Dương', 'Văn ', 'Phạm ', 0, 'Nam', 'Độc thân', 'Hà Nội', '1998-03-12', 'Thái Bình', '2014-01-01', 'Hệ thống thông tin', 'Biên chế', 9, '+84454-645-646', 3, '', 0000, '', '', '', 0000, '', 'Tiến sĩ khoa học', 2013, 'Công nghệ th', 'Đại Học Bách Khoa Hà Nội', '', 0000, '', '', '2019-05-12', 6),
-(189, 'Linh', 'Khánh', 'Mai', 0, 'Nam', 'Độc thân', 'Hà Nội', '1998-05-05', 'Thái Bình', '2000-05-07', 'Khoa học máy tính', 'Biên chế', 11, '+84545-455-545', 1, '', 0000, '', '', '', 0000, '', 'Tiến sĩ khoa học', 0000, 'Công nghệ th', '', '', 0000, '', '', '2019-05-12', 4),
-(190, 'Nam', 'Nghĩa', 'Nguyễn ', 0, 'Nam', 'Đã kết h', 'Hà Nội', '1975-02-01', 'Hà Nội', '2000-06-05', 'Kĩ thuật máy tính', 'Hợp đồng', 12, '+84789-456-123', 2, '', 0000, '', '', '', 0000, '', 'Tiến sĩ khoa học', 2000, 'Công nghệ th', 'Đại Học Bách Khoa Hà Nội', '', 0000, '', '', '2019-05-12', 5);
+(189, 'Linh', 'Khánh', 'Mai', 0, 'Nam', 'Độc thân', 'Hà Nội', '1998-05-05', 'Thái Bình', '2000-05-07', 'Khoa học máy tính', 'Biên chế', 11, '+84545-455-545', 1, '', 0000, '', '', '', 0000, '', 'Tiến sĩ khoa học', 0000, 'Công nghệ th', '', '', 0000, '', '', '2019-05-12', 4);
 
 -- --------------------------------------------------------
 
@@ -203,7 +197,7 @@ CREATE TABLE `tbl_personnel_master_file` (
   `per_date_of_original_appointment` date NOT NULL,
   `per_campus` varchar(14) CHARACTER SET utf8 NOT NULL,
   `dept_id` int(3) NOT NULL,
-  `per_employee_status`` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `per_employee_status` varchar(50) CHARACTER SET utf8 NOT NULL,
   `promote_id` int(5) NOT NULL,
   `per_contact_no` varchar(20) CHARACTER SET utf8 NOT NULL,
   `rank_id` int(3) NOT NULL,
@@ -224,19 +218,7 @@ CREATE TABLE `tbl_personnel_master_file` (
   `per_image` varchar(1000) CHARACTER SET utf8 NOT NULL,
   `date_modified` date NOT NULL,
   `gass_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_position`
---
-
-
-
--- --------------------------------------------------------
-
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -279,7 +261,6 @@ ALTER TABLE `tbl_personnel`
   ADD PRIMARY KEY (`per_id`);
 
 --
-
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -287,40 +268,39 @@ ALTER TABLE `tbl_personnel`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_academic_rank`
 --
 ALTER TABLE `tbl_academic_rank`
-  MODIFY `rank_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `rank_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_department`
 --
 ALTER TABLE `tbl_department`
-  MODIFY `dept_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `dept_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tbl_files`
 --
 ALTER TABLE `tbl_files`
-  MODIFY `file_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `file_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tbl_gass_rank`
 --
 ALTER TABLE `tbl_gass_rank`
-  MODIFY `gass_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `gass_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `tbl_personnel`
 --
 ALTER TABLE `tbl_personnel`
-  MODIFY `per_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=179;
+  MODIFY `per_id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=191;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-

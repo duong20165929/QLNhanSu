@@ -2,11 +2,11 @@
 	include ('connect.php');
 
 	
-	$admin_user = $_POST['admin_user'];
+	$admin_users = $_POST['admin_user'];
 	$admin_pass = $_POST['admin_pass'];
 
 	$fetch = $con->prepare("SELECT id FROM admin WHERE admin_user = ? AND admin_pass = ? ");
-	$fetch->execute(array($admin_user, $admin_pass));
+	$fetch->execute(array($admin_users, $admin_pass));
 	$count = $fetch->rowcount();
 	$row = $fetch->fetch();
 

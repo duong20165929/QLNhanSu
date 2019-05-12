@@ -102,19 +102,13 @@ include("header.php");
                                       <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
                                     </a>                                 
                                   </td>
-<<<<<<< HEAD
-                                  <td>     
-                                    <a class="btn btn-warning btn-sm" href="delete_personnel.php?per_id=<?php echo $row['per_id']?>">
-                                      <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Delete</span>
-                                    </a>                                 
-                                  </td>
-=======
+                                  
                                   <td>                                       
                                   <a class="btn btn-danger btn-sm" href="delete_personnel.php?per_id=<?php echo $row['per_id']?>">
                                       <span class = "glyphicon glyphicon-remove" aria-hidden = "true">Delete</span>
                                     </a>     
                                     </td>
->>>>>>> d0a4c12c5ac8f8bce260d217ca05b750d097c20a
+
                                 </tr>                           
                                      <?php 
                                      } ?>

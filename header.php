@@ -209,7 +209,6 @@
         </aside>
     </section>
 
-            <?php include("add_position_modal.php"); ?>
             <?php include("add_rank_modal.php"); ?>
             <?php include("add_department_modal.php"); ?>
 

@@ -10,9 +10,9 @@ include("header.php");
                     <div class="card">
                         <div class = "panel panel-primary">
                             <div class = "panel-heading">
-                                <h4>Tr�nh ?? h?c v?n</h4>
+                                <h4>Trình độ học vấn</h4>
                                 <a href="#" data-toggle="modal" data-target="#add_rank">
-                                    <span class="print btn-default" style="width: auto;">Add Rank<span>
+                                    <span class="print btn-default" style="width: auto;">Thêm<span>
                                 </a>
                             </div>
                         </div>
@@ -22,7 +22,7 @@ include("header.php");
                                 <thead>
                                     <tr>
                                         <td class="hidden">ID</td>
-                                        <td>H?c v?</td>
+                                        <td>Học vị</td>
                                         <td width = "200px">Action</td>
                                     </tr>
                                 </thead>

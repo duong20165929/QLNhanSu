@@ -17,7 +17,7 @@
                         Tên:
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="rank_name" placeholder="Rank Name" required>
+                            <input type="text" class="form-control" name="rank_name" placeholder="" required>
                         </div>
                     </div>
                 </div>

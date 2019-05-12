@@ -49,7 +49,7 @@ include("header.php");
                                 <tr>
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Khoa hoc may tinh' ORDER BY per_id ASC");
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Khoa học máy tính' ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 
@@ -68,7 +68,7 @@ include("header.php");
 
                                   ?>
                                   <td class="hidden"><?php echo $row['per_id']; ?></td>
-                                  <td><?php echo $row['per_lastname']." ".$row['per_firstname']." ".$row['per_middlename']; ?></td>
+                                  <td><?php echo $row['per_lastname']." ".$row['per_middlename']." ".$row['per_firstname']; ?></td>
                                   <td values="<?php echo $row['gass_id'];?>"><?php echo $row['gass_name']; ?></td>
                                   <td values="<?php echo $row['rank_id'];?>"><?php echo $row['rank_name']; ?></td>
                                   <td values="<?php echo $row['dept_id'];?>"><?php echo $row['dept_name']; ?></td>

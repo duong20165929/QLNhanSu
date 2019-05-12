@@ -10,7 +10,7 @@ include("header.php");
                     <div class="card">
                         <div class = "panel panel-primary">
                             <div class = "panel-heading">
-                                <h4>CNPM</h4>
+                                <h4>CÔNG NGHỆ PHẦN MỀM</h4>
                                 <a href="print_talisay_campus.php">
                                     <input type="button" value="Print" class="print">
                                 </a>
@@ -49,12 +49,12 @@ include("header.php");
                                 <tr>
                                   <?php
                                     include('connect.php');
-                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_position ON tbl_personnel.pos_id=tbl_position.pos_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Cong nghe phan mem' ORDER BY per_id ASC");
+                                    $display = $con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_department ON tbl_personnel.dept_id=tbl_department.dept_id WHERE per_campus = 'Công nghệ phần mềm' ORDER BY per_id ASC");
                                     $display->execute();
                                     $fetch = $display->fetchAll();                               
 
                                       foreach($fetch as $key => $row) { 
-                                        $pos_id = $row['pos_id'];
+               
                                         $bday = $row["per_date_of_birth"];
                                         $dooa = $row["per_date_of_original_appointment"];
                                         $date = new DateTime($bday);

@@ -38,91 +38,63 @@ include("header.php");
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $afilter = $con->prepare("SELECT atotal1.atotal2 + atotal3.atotal4 as atotal FROM (
-                                        SELECT COUNT(*) as atotal2
-                                        FROM   tbl_personnel WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'
-                                        ) as atotal1,
-                                        (
-                                        SELECT COUNT(*) as atotal4
-                                        FROM   tbl_personnel_master_file WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Khoa học máy tính'AND per_employee_status = 'Hợp đồng'
-                                        ) as atotal3 ");
+                                    $afilter = $con->prepare("SELECT COUNT(per_employee_status) as khmt FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Khoa học máy tính' AND per_employee_status = 'Hợp đồng'");
                                         $afilter->execute();
                                         $afetch = $afilter->fetchAll();
 
                                         foreach ($afetch as $key => $row) {
-                                            $atotal = $row['COUNT(*)' + 'COUNT(atotal)'];
+                                            $khmt = $row['khmt'];
 
 
                                         //MS TOTAL
                                         //MS TOTAL
                                         //MS TOTAL
-                                    $tfilter = $con->prepare("SELECT ttotal1.ttotal2 + ttotal3.ttotal4 as ttotal FROM (
-                                        SELECT COUNT(*) as ttotal2
-                                        FROM   tbl_personnel WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Công nghệ phần mềm' AND per_employee_status = 'Hợp đồng' 
-                                        ) as ttotal1,
-                                        (
-                                        SELECT COUNT(*) as ttotal4
-                                        FROM   tbl_personnel_master_file WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Công nghệ phần mềm' AND per_employee_status = 'Hợp đồng' 
-                                        ) as ttotal3 ");
+                                    $tfilter = $con->prepare("SELECT COUNT(per_employee_status) as cnpm FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Công nghệ phần mềm' AND per_employee_status = 'Hợp đồng'");
                                     $tfilter->execute();
                                     $tfetch = $tfilter->fetchAll();
 
                                         foreach ($tfetch as $key => $row1) {
-                                            $ttotal = $row1['COUNT(*)' + 'COUNT(ttotal)'];
+                                            $cnpm = $row1['cnpm'];
 
                                             //DR QUERY
                                             //DR QUERY
                                             //DR QUERY
-                                    $bfilter = $con->prepare("SELECT btotal1.btotal2 + btotal3.btotal4 as btotal FROM (
-                                        SELECT COUNT(*) as btotal2
-                                        FROM tbl_personnel WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Kĩ thuật máy tính' AND per_employee_status = 'Hợp đồng'
-                                        ) as btotal1,
-                                        (
-                                        SELECT COUNT(*) as btotal4
-                                        FROM tbl_personnel_master_file WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Kĩ thuật máy tính' AND per_employee_status = 'Hợp đồng'
-                                        ) as btotal3 ");
+                                    $bfilter = $con->prepare("SELECT COUNT(per_employee_status) as ktmt FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Kĩ thuật máy tính' AND per_employee_status = 'Hợp đồng'");
                                     
                                         $bfilter->execute();
                                         $bfetch = $bfilter->fetchAll();
 
                                         foreach ($bfetch as $key => $row2) {
-                                            $btotal = $row2['COUNT(*)' + 'COUNT(btotal)'];
+                                            $ktmt = $row2['ktmt'];
 
 
-                                        $ftfilter = $con->prepare("SELECT fttotal1.fttotal2 + fttotal3.fttotal4 as fttotal FROM (
-                                        SELECT COUNT(*) as fttotal2
-                                        FROM tbl_personnel WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Hệ thống thông tin' AND per_employee_status = 'Hợp đồng'
-                                        ) as fttotal1,
-                                        (
-                                        SELECT COUNT(*) as fttotal4
-                                        FROM tbl_personnel_master_file WHERE date_modified >= '$d1' AND date_modified <= '$d2' AND per_campus = 'Hệ thống thông tin' AND per_employee_status = 'Hợp đồng'
-                                        ) as fttotal3 ");
+                                        $ftfilter = $con->prepare("SELECT COUNT(per_employee_status) as httt FROM `tbl_personnel` WHERE date_modified >= '$d1' AND date_modified <= '$d2' per_campus = 'Hệ thống thông tin' AND per_employee_status = 'Hợp đồng'");
                                     
                                         $ftfilter->execute();
                                         $ftfetch = $ftfilter->fetchAll();
 
                                         foreach ($ftfetch as $key => $row3) {
-                                            $fttotal = $row3['COUNT(*)' + 'COUNT(fttotal)'];
+                                            $httt = $row3['httt'];
                                              ?>
                                             <tr>
                                              <td>Khoa học máy tính</td>
-                                             <td><?php echo $atotal; ?></td>
+                                             <td><?php echo $khmt; ?></td>
                                              </tr>
                                             <tr>
                                              <td>Kĩ thuật máy tính</td>
-                                             <td><?php echo $btotal; ?></td>
+                                             <td><?php echo $ktmt; ?></td>
                                             </tr>
                                             <tr>
                                              <td>Hệ thống thông tin</td>
-                                             <td><?php echo $btotal; ?></td>
+                                             <td><?php echo $httt; ?></td>
                                             </tr>
                                             <tr>
                                             <tr>
                                              <td>Công nghệ phần mềm</td>
-                                             <td><?php echo $ttotal; ?></td>
+                                             <td><?php echo $cnpm; ?></td>
                                              </tr>
                                             <td>TOTAL</td>
-                                             <td><?php echo $atotal + $ttotal + $btotal; ?></td>
+                                             <td><?php echo $khmt + $ktmt + $httt + $cnpm; ?></td>
                                             </tr>
                                       </tbody>
                                 </table>

@@ -57,9 +57,9 @@ include("header.php");
 
    <script>
     function printDiv() {
-        //Get the HTML of div
+        
         var divElements = document.getElementById("print").innerHTML;
-        //Get the HTML of whole page
+        
         var oldPage = document.body.innerHTML;
         //Reset the page's HTML with div's HTML only
         document.body.innerHTML = "<table></table>" + divElements;

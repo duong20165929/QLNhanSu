@@ -102,14 +102,14 @@
                 </table>
       <br><br><br>
       <div class="noted">
-        <label>Prepared by:</label>
+        <label>Người soạn:</label>
         <br>
         <br>
         <label style="text-transform: uppercase;"><strong>{{firstname}}</strong></label>
         <br>
         <label style="text-transform: capitalize;">{{position}}</label>
         <br><br><br>
-        <label>Certified Correct:</label>
+        <label>Người xác nhận:</label>
         <br>
         <br>
         <label style="text-transform: uppercase;"><strong>{{certified}}</strong></label>

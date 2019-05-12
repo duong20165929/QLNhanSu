@@ -1,7 +1,7 @@
 <?php
  
 ignore_user_abort(true);
-set_time_limit(0); // disable the time limit for this script
+set_time_limit(0); 
  
 if (isset($_GET['download_file'])) {
 // place this code inside a php file and call it f.e. "download.php" 

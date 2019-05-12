@@ -76,28 +76,11 @@
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
     <!-- Top Bar -->
-    <nav class="navbar">
-        <div class="container-fluid" style="background-color:#f44336;">
-            <div class="navbar-header">
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="home.php" style="color: #fff;">Hồ sơ cá nhân</a>
-                <ul class = "nav navbar-right"> 
-                <li class = "dropdown">
-                    <a class = "user dropdown-toggle" data-toggle = "dropdown" href = "#" style="color: #fff;">
-                        <span class = "glyphicon glyphicon-user" style="color: #fff;"></span>
-                        <b class = "caret"></b>
-                    </a>
-                <ul class = "dropdown-menu">
-                    <li>
-                        <a class = "me" href = "logout.php" onclick="if(confirm('Logging out, Thank you and see you soon Admin!') == 0){return false;}"><i class = "glyphicon glyphicon-log-out"></i> Logout</a>
-                    </li>
-                </ul>
-                </li>
-            </ul>
-            </div>
-        </div>
-    </nav>
+    <div style="width: 100%;height: 70px;background-color: #0B0B3B;">
+        <a href="home.php">
+            <span class = "navbar-brand"><p style="text-align: center;"><img src="images/logo.jpg" style="display: inline-block;" width="30" height="50"> ĐẠI HỌC BÁCH KHOA HÀ NỘI - HANOI UNIVERSITY OF SCIENCE AND TECHNOLOGY</p></span>
+        </a>
+    </div>
     <!-- #Top Bar -->
     <section>
         <!-- Left Sidebar -->
@@ -162,46 +145,22 @@
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             
-                            <i class="glyphicon glyphicon-print"></i>&nbsp;&nbsp;Reports
+                            <i class="glyphicon glyphicon-print"></i>&nbsp;&nbsp;Báo cáo
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="individual_report.php">Individual Reports</a>
+                                <a href="individual_report.php">Báo cáo cá nhân</a>
                             </li>
+                            
                             <li>
-                                <a href="retirement_table.php">Retirement</a>
-                            </li>
-                            <li>
-                                <a href="faculty_profile.php">Faculty Profile by Unit</a>
-                            </li>
-                            <li>
-                                <a href="educational_qualification.php">Educational Qualifications</a>
-                            </li>
-                            <li>
-                                <a href="faculty_per_campus.php">Number of Faculty / Campus</a>
-                            </li>
-                            <li>
-                                <a href="Faculty_profile_by_degree.php">Faculty Profile by Degree</a>
-                            </li>
-                            <li>
-                                <a href="faculty_profile_by_academic_rank.php">Faculty Profile by Academic Rank</a>
-                            </li>
-                            <li>
-                                <a href="breakdown_of_faculty_profile.php">Breakdown Of Faculty</a>
-                            </li>
-                            <li>
-                                <a href="gass_profile_by_degree.php">Gass Profile By Degree</a>
-                            </li>
-                            <li>
-                                <a href="gass_per_campus.php">Number of Gass Personnel per Campus</a>
-                            </li>
-                            <li>
-                                <a href="job_order_per_campus.php">Number of Job Order Personnel per Campus</a>
-                            </li>
-                            <li>
-                                <a href="gass_personnel.php">GASS Personnel with Completed Master's and Doctoral Degree</a>
+                                <a href="job_order_per_campus.php">Số hợp đồng trên mỗi bộ môn</a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a href="logout.php"> 
+                            <i class="glyphicon">&#xe163;</i>
+                        </a>
                     </li>
                 </ul><br><br><br>
                 <div class="dtime">

@@ -10,24 +10,24 @@
     </div>
     <div ng-app="myApp" ng-controller="myCtrl">
         <div class="prepared-form" style="border: 1px solid; width: 30%; margin-right: 480px;">
-            <i>Note: Please Fill up this form.</i>
+            <i>Note: Hãy điền đầy đủ thông tin .</i>
             <br><br>
             <table>
             <tr>
-                <td>Prepared by :</td>
-                <td><input ng-model="firstname" placeholder="Name" class="form-control"></td>
+                <td>Người soạn :</td>
+                <td><input ng-model="firstname" placeholder="" class="form-control"></td>
             </tr>
             <tr>
-                <td>Position :</td>
-                <td><input ng-model="position" placeholder="Position" class="form-control"></td>
+                <td>Chức vụ :</td>
+                <td><input ng-model="position" placeholder="" class="form-control"></td>
             </tr>
             <tr>
-                <td>Certified Correct :</td>
-                <td><input ng-model="certified" placeholder="Name" class="form-control"></td>
+                <td>Người xác nhận :</td>
+                <td><input ng-model="certified" placeholder="" class="form-control"></td>
             </tr>
             <tr>
-                <td>Position :</td>
-                <td><input ng-model="position1" placeholder="Position" class="form-control"></td>
+                <td>Chức vụ :</td>
+                <td><input ng-model="position1" placeholder="" class="form-control"></td>
             </tr>
            </table>
         </div>
@@ -35,15 +35,15 @@
     <div id="print" style="border: 1px solid; width: 80%; height: auto;">
         <div class="report-title" style = "margin:10px;"><br/>
             <div class="print-logo">
-                <img src="images/CHMSC_logo.png" width="120px" height="120px" style="margin-left: -330px; position: absolute;">
+                <img src="images/soict.png" width="120px" height="120px" style="margin-left: -330px; position: absolute;">
             </div>
-            <center>Republic of the Philippines</center>
-            <center><strong>CARLOS HILADO MEMORIAL STATE COLLEGE</strong></center>
-            <center>Talisay City, Negros Occidental</center>
-            <center>Tel. No. (034) 4954996</center>
+            <center><strong>ĐẠI HỌC BÁCH KHOA HÀ NỘI</strong></center>
+            <center><strong>Viện Công Nghệ Thông Tin & Truyền Thông</strong></center>
+            <center>Phòng 504 - Nhà B1 - Đại học BKHN</center>
+            <center>Liên hệ: (+84) 4 3869 2463</center>
             <br />
-            <center><strong>NUMBER OF FACULTY PER CAMPUS</strong></center>
-            <center><strong>As of <?php echo date('F Y'); ?></strong></center>
+            <center>HỒ SƠ CÁ NHÂN</center>
+            <center> <?php echo date('F Y'); ?></center>
         </div>
         <br />
         <br />
@@ -77,190 +77,138 @@
 	?>
             <table id = "example" class = "stripe order-table" cellspacing = "0" style="margin: 10px;">
                 <tr>
-		<td colspan = "4" class = "page-header"> I. Personal Information</td>	
+                    <td colspan = "4" class = "page-header"> <b>HỒ SƠ</b></td>	
 		</tr>
 		<tr>
-			<td>
-			<label><?php echo $row['per_lastname']; ?></label>
-			<br>
-			Last Name		
+                    <td colspan="4">
+                        
+                        <b>Họ tên</b>
+                        <br>
+			<label><?php echo $row['per_lastname']." ".$row['per_middlename']." ".$row['per_firstname']; ?></label>
+					
 			</td>
-			<td><label><?php echo $row['per_firstname']; ?></label>
-			<br>
-			First Name
-			</td>
-			<td><label><?php echo $row['per_middlename']; ?></label>
-			<br>
-			Middle Name
-			</td>
-			<td><label><?php echo $row['per_suffix']; ?></label>
-			<br>
-			Name Extension
-			</td>
+			
 		</tr>
 			<tr>
-			<td><label><?php echo $row['per_date_of_birth']; ?></label>
-			<br>
-			Date of Birth		
-			</td>
-			<td colspan = "3">
+                            <td colspan="2">Ngày sinh <br>
+                            <label><?php echo $row['per_date_of_birth']; ?></label>
+					
+			</td >
+			<td colspan = "2">
 			<label><?php echo $row['per_address']; ?></label>
 			<br>
-			Address
+                        <b>Địa chỉ</b>
 			</td>
 		</tr>
 		<tr>
-			<td colspan = "3">
+                    <td colspan = "2"><b>Nơi sinh</b> <br>
 			<label><?php echo $row['per_place_of_birth']; ?></label>
-			<br>
-			Place of Birth
-			</td>
-			<<td><label><?php echo $row['per_contact_no']; ?></label>
-			<br>
-			Contact No.		
-			</td>
-		</tr>
-		<tr>
-			<td><label><?php echo $row['per_gender']; ?></label>
-			<br>
-			Sex		
-			</td>
-			<td><label><?php echo $row['per_status']; ?></label>
-			<br>
-			Civil Status		
-			</td>
-		</tr>
-		<tr>
-			<td><label><?php echo $row['per_pagibig_no']; ?></label>
-			<br>
-			Pag-ibig No.		
-			</td>
-			<td><label><?php echo $row['per_gsis_bp_no']; ?></label>
-			<br>
-			GSIS No.		
-			</td>
-			<td><label><?php echo $row['per_tin_no']; ?></label>
-			<br>
-			TIN No.		
-			</td>
-		</tr>
-		<tr>
-			<td></td>
-		</tr>
-		<tr>
-			<td><label><?php echo $row['per_plantilla_no']; ?></label>
-			<br>
-			Plantilla No.		
-			</td>
-			<td>
-			<?php
-			$result1=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_position ON tbl_personnel.pos_id = tbl_position.pos_id WHERE per_id='{$_GET['per_id']}'");
-	$result1->execute();
-	$fetch1 = $result1->fetchall();
-	foreach($fetch1 as $key => $row1) { 
-	?>
-			<label><?php echo $row1['pos_name']; ?></label>
-	<?php } ?>	
-			<br>
-			Position
-		
-			</td>
-			<td>
-			<?php
-			$result2=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id WHERE per_id='{$_GET['per_id']}'");
-			$result2->execute();
-			$fetch2 = $result2->fetchall();
-			foreach($fetch2 as $key => $row2) {
-			$result3=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id WHERE per_id='{$_GET['per_id']}'");
-			$result3->execute();
-			$fetch3 = $result1->fetchall();
-			foreach($fetch3 as $key => $row3) {	
-	?>
-			<label><?php echo $row1['gass_name'] . " " . $row1['rank_name']; ?></label>
-			<?php } }?>	
-			<br>
-			Rank	
-			</td>
-			<td>
-			<?php
-			$result4=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_department ON tbl_personnel.dept_id = tbl_department.dept_id WHERE per_id='{$_GET['per_id']}'");
-	$result4->execute();
-	$fetch4 = $result1->fetchall();
-	foreach($fetch4 as $key => $row4) { 
-	?>
-			<label><?php echo $row4['dept_name']; ?></label>
-	<?php } ?>	
-			<br>
-			Department
+			
+                    </td>>
+                        <td colspan="2">
+                            <b>Số điện thoại</b> <br>
+                            <label><?php echo $row['per_contact_no']; ?></label>
 		
 			</td>
 		</tr>
 		<tr>
-			<td><label><?php echo $row['per_date_of_original_appointment']; ?></label>
-			<br>
-			Date of Appointment		
+                    <td colspan="2">
+                        <b>Giới tính</b><br>
+                            <label><?php echo $row['per_gender']; ?></label>
+					
+			</td>
+                        <td colspan="2"><b>Tình trạng hôn nhân</b> <br>
+                            <label><?php echo $row['per_status']; ?></label>
+	 		
+			</td>
+		</tr>
+		
+		<tr>
+			
+                    <td colspan="2"><b>Chức vụ</b> <br>
+			<?php
+			$result1=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id WHERE per_id='{$_GET['per_id']}'");
+                        $result1->execute();
+                        $fetch1 = $result1->fetchall();
+                        foreach($fetch1 as $key => $row1) { 
+                        ?>
+			<label><?php echo $row1['gass_name']; ?></label>
+                        <?php } ?>	
+		
+			</td>
+                        <td><b>Trình độ</b><br>
+			<?php
+			$result1=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id WHERE per_id='{$_GET['per_id']}'");
+                        $result1->execute();
+                        $fetch1 = $result1->fetchall();
+                        foreach($fetch1 as $key => $row1) { 
+                        ?>
+			<label><?php echo $row1['rank_name']; ?></label>
+                        <?php } ?>	
+			</td>
+                        <td>
+                            <b>Ngày bổ nhiệm</b><br>
+                            <label><?php echo $row['per_date_of_original_appointment']; ?></label>		
+			</td>
+			
+		</tr>
+		
+		<tr>
+			<td colspan = "4" class = "page-header">TRÌNH ĐỘ ĐÃ ĐẠT</label>
+		</tr>
+		<tr>
+			<td>
+                            <b>Bằng cử nhân</b><br>
+                            <label><?php echo $row['bs_name']; ?></label>	
+			</td>
+			<td>
+                            <b>Năm nhận</b><br>
+                            <label><?php echo $row['bs_year']; ?></label>	
+			</td>
+			<td colspan = "2">
+                            <b>Tại trường</b><br>
+                            <label><?php echo $row['bs_school']; ?></label>	
 			</td>
 		</tr>
 		<tr>
-			<td></td>
-		</tr>
-		<tr>
-			<td colspan = "4" class = "page-header">Educational Background</label>
-		</tr>
-		<tr>
-			<td><label><?php echo $row['bs_name']; ?></label>
-			<br>
-			Bachelor's Degree	
+			<td>
+                            <b>Bằng thạc sĩ</b><br><label><?php echo $row['ms_name']; ?></label>	
 			</td>
-			<td><label><?php echo $row['bs_year']; ?></label>
-			<br>
-			Year	
+			<td>
+                            <b>Năm nhận</b><br>
+                            <label><?php echo $row['ms_year']; ?></label>	
 			</td>
-			<td colspan = "2"><label><?php echo $row['bs_school']; ?></label>
-			<br>
-			School	
+			<td colspan = "2">
+                            <b>Tại trường</b><br>
+                            <label><?php echo $row['ms_school']; ?></label>	
 			</td>
 		</tr>
 		<tr>
-			<td><label><?php echo $row['ms_name']; ?></label>
-			<br>
-			Master's Degree	
+			<td>
+                            <b>Bằng tiến sĩ</b><br>
+                            <label><?php echo $row['dr_name']; ?></label>		
 			</td>
-			<td><label><?php echo $row['ms_year']; ?></label>
-			<br>
-			Year	
+			<td>
+                            <b>Năm nhận</b><br>
+                            <label><?php echo $row['dr_year']; ?></label>	
 			</td>
-			<td colspan = "2"><label><?php echo $row['ms_school']; ?></label>
-			<br>
-			School	
-			</td>
-		</tr>
-		<tr>
-			<td><label><?php echo $row['dr_name']; ?></label>
-			<br>
-			Doctoral Degree		
-			</td>
-			<td><label><?php echo $row['dr_year']; ?></label>
-			<br>
-			Year	
-			</td>
-			<td colspan = "2"><label><?php echo $row['dr_school']; ?></label>
-			<br>
-			School	
+			<td colspan = "2">
+                            <b>Tại trường</b><br>
+                            <label><?php echo $row['dr_school']; ?></label>	
 			</td>
 		</tr>
 	</table>
 	<?php } ?>
                 <br><br><br>
                 <div class="noted">
-                    <label>Prepared by:</label>
+                    <label><b>Người soạn:</b></label>
                     <br>
                     <br>
                     <label style="text-transform: uppercase;"><strong>{{firstname}}</strong></label>
                     <br>
                     <label style="text-transform: capitalize;">{{position}}</label>
                     <br><br><br>
-                    <label>Certified Correct:</label>
+                    <label><b>Người xác nhận:</b></label>
                     <br>
                     <br>
                     <label style="text-transform: uppercase;"><strong>{{certified}}</strong></label>

@@ -102,7 +102,7 @@ include("header.php");
                                       <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
                                     </a>                                 
                                   </td>
-                                  
+
                                   <td>                                       
                                   <a class="btn btn-danger btn-sm" href="delete_personnel.php?per_id=<?php echo $row['per_id']?>">
                                       <span class = "glyphicon glyphicon-remove" aria-hidden = "true">Delete</span>
@@ -122,19 +122,8 @@ include("header.php");
          </div>
     </div>
 </section>
-<<<<<<< HEAD
 
-=======
-<script>
-function deleletconfig(int ids){
 
-var del=confirm("Are you sure you want to delete this record?");
-if (del==true){
-    window.location.href="delete_personnel.php?per_id=" +ids;
-}
-return del;
->>>>>>> d0a4c12c5ac8f8bce260d217ca05b750d097c20a
-}
    <script>
     function printDiv() {
         //Get the HTML of div

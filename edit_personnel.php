@@ -3,13 +3,12 @@
 include ("connect.php");
 
 
-$result=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_department ON tbl_personnel.dept_id = tbl_department.dept_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id LEFT JOIN tbl_position ON tbl_personnel.pos_id = tbl_position.pos_id WHERE per_id='{$_GET['per_id']}'");
+$result=$con->prepare("SELECT * FROM tbl_personnel LEFT JOIN tbl_department ON tbl_personnel.dept_id = tbl_department.dept_id LEFT JOIN tbl_academic_rank ON tbl_personnel.rank_id = tbl_academic_rank.rank_id LEFT JOIN tbl_gass_rank ON tbl_personnel.gass_id = tbl_gass_rank.gass_id WHERE per_id='{$_GET['per_id']}'");
 $result->execute();
 $fetch = $result->fetchall(); 
 
 foreach ($fetch as $key => $row) {
     $per_id = $row['per_id'];
-    $pos_name = $row['pos_name'];
     $dept_id = $row['dept_id'];
     $dept_name = $row['dept_name'];
     $rank_name = $row['rank_name'];
@@ -85,17 +84,7 @@ foreach ($fetch as $key => $row) {
                                             </div>
                                         </div>
                                     </div>
-<!--                                    <div class="col-md-3">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                Suffix:
-                                            </span>
-                                            <div class="form-line">
-                                                <input type="text" class="form-control" name="per_suffix" placeholder="Sr/Jr" value="<?php echo $row['per_suffix']; ?>">
-                                            </div>
-                                        </div>
-                                    </div>
--->                                    <div class="col-md-3">
+									<div class="col-md-3">
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 Giới tính:
@@ -113,11 +102,11 @@ foreach ($fetch as $key => $row) {
                                                 Tình trạng hôn nhân:
                                             </span>
                                             <select class="form-control show-tick" name="per_status">
-                                                <!--<option><?php echo $row['per_status']; ?></option>-->
-                                                <option>Single</option>
-                                                <option>Married</option>
-                                                <option>Widowed</option>
-                                                <option>Separated</option>
+                                                <option><?php echo $row['per_status']; ?></option>
+                                                <option>Độc thân</option>
+                                                <option>Đã kết hôn</option>
+                                                <option>Góa</option>
+                                                <option>Đã ly hôn</option>
                                             </select>
                                         </div>
                                     </div>
@@ -219,8 +208,8 @@ foreach ($fetch as $key => $row) {
                                             </span>
                                                 <select class="form-control show-tick main" id = "privileges" name="per_employee_status" value="<?php echo $row['per_employee_status'];?>">
                                                     <option><?php echo $per_employee_status; ?>
-                                                    <option value='Bien che'>Bien che</option>
-                                                    <option value='Hop dong'>Hop dong</option>
+                                                    <option value='Biên chế'>Biên chế</option>
+                                                    <option value='Hợp đồng'>Hợp đồng</option>
                                                     
                                                 </select>
                                         </div>
@@ -232,10 +221,10 @@ foreach ($fetch as $key => $row) {
                                             </span>
                                                 <select class="form-control show-tick" name="per_campus" value="<?php echo $row['per_campus']; ?>">
                                                     <option><?php echo $per_campus; ?></option>
-                                                    <option>Cong nghe phan mem</option>
-                                                    <option>He thong thong tin</option>
-                                                    <option>Khoa hoc may tinh</option>
-                                                    <option>Ki thuat may tinh</option>
+                                                    <option>Công nghệ phần mềm</option>
+                                                    <option>Hệ thống thông tin</option>
+                                                    <option>Khoa học máy tính</option>
+                                                    <option>Kĩ thuật máy tính</option>
                                                 </select>
                                         </div>
                                     </div>

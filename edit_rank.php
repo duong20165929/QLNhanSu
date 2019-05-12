@@ -20,7 +20,7 @@ return del;
             <div class = "panel panel-primary">
                 <div class = "panel-heading">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4>UPDATE ACADEMIC RANK</h4>
+                    <h4>UPDATE</h4>
                 </div>
             </div>
             <div class="modal-body">          
@@ -29,7 +29,7 @@ return del;
             <div class="modal-body">
                 <div class="input-group">
                     <span class="input-group-addon">
-                    Rank Name:
+                    Tên học vị:
                     </span>
                     <div class="form-line">
                         <input type="hidden" class="form-control" name="rank_id" value="<?php echo $row['rank_id']?>">

@@ -23,27 +23,7 @@
                         </div>
                     </div>
                 </div>
-<!--                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="info-box bg-cyan hover-expand-effect">
-                        <div class="icon">                        
-                            <i class="glyphicon glyphicon-user"></i>
-                        </div>
-                        <div class="content">
-                            //<?php
-//                                include('connect.php');
-//                                 $gass = $con->prepare("SELECT COUNT(*) FROM tbl_personnel where per_designation = ''");
-//                                    $gass->execute();
-//                                    $fetch1 = $gass->fetchAll();
-//
-//                                foreach($fetch1 as $key => $row1) { 
-//                                   $total1 = $row1['COUNT(*)'];
-//
-//                              }?>
-                            <div class="text">GASS</div>
-                            <div class="number count-to"><?php echo $total1; ?></div>
-                        </div>
-                    </div>
-                </div>-->
+
                 
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                     <div class="info-box bg-orange hover-expand-effect">
@@ -129,149 +109,155 @@
             <!-- CNPM -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Công nghệ phần mềm' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Công nghệ phần mềm' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edtbs = $row['COUNT(DISTINCT bs_name)'];
+                   $cnpmgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Công nghệ phần mềm' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Công nghệ phần mềm' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Phó giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edtms = $row['COUNT(DISTINCT ms_name)'];
+                   $cnpmpgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Công nghệ phần mềm' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Công nghệ phần mềm' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Tiến sĩ'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edtdr = $row['COUNT(DISTINCT dr_name)'];
+                   $cnpmts = $row['COUNT(tbl_academic_rank.rank_id)'];
+            }?>
+            <?php
+                include('connect.php');
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Công nghệ phần mềm' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Thạc sĩ'");
+                    $display->execute();
+                    $fetch = $display->fetchAll();
+
+                foreach($fetch as $key => $row) { 
+                   $cnpmths = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
 
             <!-- KHMT -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Khoa học máy tính' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Khoa học máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edfbs = $row['COUNT(DISTINCT bs_name)'];
+                   $khmtgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Khoa học máy tính' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Khoa học máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Phó giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edfms = $row['COUNT(DISTINCT ms_name)'];
+                   $khmtpgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Khoa học máy tính' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Khoa học máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Tiến sĩ'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edfdr = $row['COUNT(DISTINCT dr_name)'];
+                   $khmtts = $row['COUNT(tbl_academic_rank.rank_id)'];
+            }?>
+            <?php
+                include('connect.php');
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Khoa học máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Thạc sĩ'");
+                    $display->execute();
+                    $fetch = $display->fetchAll();
+
+                foreach($fetch as $key => $row) { 
+                   $khmtths = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
 
             <!-- KTMT -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Kĩ thuật máy tính' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Kĩ thuật máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edabs = $row['COUNT(DISTINCT bs_name)'];
+                   $ktmtgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Kĩ thuật máy tính' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Kĩ thuật máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Phó giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edams = $row['COUNT(DISTINCT ms_name)'];
+                   $ktmtpgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Kĩ thuật máy tính' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Kĩ thuật máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Tiến sĩ'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edadr = $row['COUNT(DISTINCT dr_name)'];
+                   $ktmtts = $row['COUNT(tbl_academic_rank.rank_id)'];
+            }?>
+            <?php
+                include('connect.php');
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Kĩ thuật máy tính' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Thạc sĩ'");
+                    $display->execute();
+                    $fetch = $display->fetchAll();
+
+                foreach($fetch as $key => $row) { 
+                   $ktmtths = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
 
             <!-- HTTT -->
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Hệ thống thông tin' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Hệ thống thông tin' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edbbs = $row['COUNT(DISTINCT bs_name)'];
+                   $htttgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Hệ thống thông tin' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Hệ thống thông tin' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Phó giáo sư'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edbms = $row['COUNT(DISTINCT ms_name)'];
+                   $htttpgs = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Hệ thống thông tin' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Hệ thống thông tin' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Tiến sĩ'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edbdr = $row['COUNT(DISTINCT dr_name)'];
-            }?>
-            <!-- TT&MMT -->
-            <?php
-                include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT bs_name) FROM tbl_personnel WHERE per_campus = 'Truyền thông và mạng máy tính' AND per_id<>0");
-                    $display->execute();
-                    $fetch = $display->fetchAll();
-
-                foreach($fetch as $key => $row) { 
-                   $edbbs = $row['COUNT(DISTINCT bs_name)'];
+                   $htttts = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             <?php
                 include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT ms_name) FROM tbl_personnel WHERE per_campus = 'Truyền thông và mạng máy tính' AND per_id<>0");
+                 $display = $con->prepare("SELECT COUNT(tbl_academic_rank.rank_id)FROM `tbl_personnel`,`tbl_academic_rank` WHERE tbl_personnel.per_campus = 'Hệ thống thông tin' and tbl_personnel.per_id<>0 AND tbl_personnel.rank_id = tbl_academic_rank.rank_id and tbl_academic_rank.rank_name='Thạc sĩ'");
                     $display->execute();
                     $fetch = $display->fetchAll();
 
                 foreach($fetch as $key => $row) { 
-                   $edbms = $row['COUNT(DISTINCT ms_name)'];
-            }?>
-            <?php
-                include('connect.php');
-                 $display = $con->prepare("SELECT COUNT(DISTINCT dr_name) FROM tbl_personnel WHERE per_campus = 'Truyền thông và mạng máy tính' AND per_id<>0");
-                    $display->execute();
-                    $fetch = $display->fetchAll();
-
-                foreach($fetch as $key => $row) { 
-                   $edbdr = $row['COUNT(DISTINCT dr_name)'];
+                   $htttths = $row['COUNT(tbl_academic_rank.rank_id)'];
             }?>
             
-
-
         <script src="js/jquery.canvasjs.min.js"></script>
             <script type="text/javascript"> 
               window.onload = function() { 
@@ -380,10 +366,10 @@
                 name: "Giáo sư",
                 color: "#779ECB",
                 dataPoints: [
-                { y: <?php echo $edbbs; ?>, label: "KTMT"},        
-                { y: <?php echo $edabs; ?>, label: "KHMT"},              
-                { y: <?php echo $edfbs; ?>, label: "HTTT"},
-                { y: <?php echo $edtbs; ?>, label: "CNPM"}
+                { y: <?php echo $ktmtgs; ?>, label: "KTMT"},        
+                { y: <?php echo $khmtgs; ?>, label: "KHMT"},              
+                { y: <?php echo $htttgs; ?>, label: "HTTT"},
+                { y: <?php echo $cnpmgs; ?>, label: "CNPM"}
                 ]
               },
               {        
@@ -392,10 +378,10 @@
                 name: "Phó Giáo Sư",
                 color: "#FF6961",          
                 dataPoints: [
-                { y: <?php echo $edbms; ?>, label: "KTMT"},        
-                { y: <?php echo $edams; ?>, label: "KHMT"},         
-                { y: <?php echo $edfms; ?>, label: "HTTT"},
-                { y: <?php echo $edtms; ?>, label: "CNPM"}
+                { y: <?php echo $ktmtpgs; ?>, label: "KTMT"},        
+                { y: <?php echo $khmtpgs; ?>, label: "KHMT"},         
+                { y: <?php echo $htttpgs; ?>, label: "HTTT"},
+                { y: <?php echo $cnpmpgs; ?>, label: "CNPM"}
                 ]
               },
               {        
@@ -404,10 +390,10 @@
                 name: "Tiến sĩ",
                 color: "#77DD77",
                 dataPoints: [
-                { y: <?php echo $edbdr; ?>, label: "KTMT"},    
-                { y: <?php echo $edadr; ?>, label: "KHMT"},              
-                { y: <?php echo $edfdr; ?>, label: "HTTT"},
-                { y: <?php echo $edtdr; ?>, label: "CNPM"}
+                { y: <?php echo $ktmtts; ?>, label: "KTMT"},    
+                { y: <?php echo $khmtts; ?>, label: "KHMT"},              
+                { y: <?php echo $htttts; ?>, label: "HTTT"},
+                { y: <?php echo $cnpmts; ?>, label: "CNPM"}
                 ]
               },
               {        
@@ -416,10 +402,10 @@
                 name: "Thạc sĩ",
                 color: "brown",
                 dataPoints: [
-                { y: <?php echo $edbdr; ?>, label: "KTMT"},    
-                { y: <?php echo $edadr; ?>, label: "KHMT"},              
-                { y: <?php echo $edfdr; ?>, label: "HTTT"},
-                { y: <?php echo $edtdr; ?>, label: "CNPM"}
+                { y: <?php echo $ktmtths; ?>, label: "KTMT"},    
+                { y: <?php echo $khmtths; ?>, label: "KHMT"},              
+                { y: <?php echo $htttths; ?>, label: "HTTT"},
+                { y: <?php echo $cnpmths; ?>, label: "CNPM"}
                 ]
               }
               

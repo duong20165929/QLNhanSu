@@ -20,7 +20,7 @@
                         Tên chức danh:
                         </span>
                         <div class="form-line">
-                            <input type="text" class="form-control" name="gass_name" placeholder="GASS Rank Name" required>
+                            <input type="text" class="form-control" name="gass_name" placeholder="" required>
                         </div>
                     </div>
                 </div>

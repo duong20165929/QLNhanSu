@@ -21,7 +21,7 @@
                                             $per_firstname = $row['per_firstname'];
                                             $per_lastname = $row['per_lastname'];
                                     ?>
-                                    <option value="<?php echo $per_id ?>"><?php echo $per_firstname." ".$per_lastname; ?></option>
+                                    <option value="<?php echo $per_id ?>"><?php echo $per_lastname." ".$per_firstname; ?></option>
                                      
                                     <?php } ?>
                                     </select>

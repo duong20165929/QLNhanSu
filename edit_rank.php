@@ -1,7 +1,9 @@
 <a class="btn btn-success" href="#edit<?php echo $row['rank_id']?>" data-toggle="modal">
     <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
 </a> 
-
+<a class="btn btn-warning btn-sm" href="delete_rank.php?gass_id=<?php echo $row['rank_id']?>">
+  <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Delete</span>
+</a> 
 <!-- Modal -->
 <div class="modal fade" id="edit<?php echo $row['rank_id']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">

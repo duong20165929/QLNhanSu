@@ -1,11 +1,11 @@
 <a class="btn btn-success" href="#edit<?php echo $row['dept_id']?>" data-toggle="modal">
     <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
 </a> 
-<td>     
-                                    <a class="btn btn-warning btn-sm" href="delete_department.php?dept_id=<?php echo $row['dept_id']?>">
-                                      <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Delete</span>
-                                    </a>                                 
-                                  </td>
+  
+<a class="btn btn-warning btn-sm" href="delete_department.php?dept_id=<?php echo $row['dept_id']?>">
+  <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Delete</span>
+</a>                                 
+                               
 <!-- Modal -->
 <div class="modal fade" id="edit<?php echo $row['dept_id']?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">

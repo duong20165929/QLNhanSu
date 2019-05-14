@@ -101,10 +101,8 @@ include("header.php");
                                     <a class="btn btn-success btn-sm" href="edit_personnel.php?per_id=<?php echo $row['per_id']?>">
                                       <span class = "glyphicon glyphicon-pencil" aria-hidden = "true">Edit</span>
                                     </a>                                 
-                                  </td>
-
-                                  <td>                                       
-                                  <a class="btn btn-danger btn-sm" href="delete_personnel.php?per_id=<?php echo $row['per_id']?>">
+                                                                         
+									<a class="btn btn-danger btn-sm" href="delete_personnel.php?per_id=<?php echo $row['per_id']?>">
                                       <span class = "glyphicon glyphicon-remove" aria-hidden = "true">Delete</span>
                                     </a>     
                                     </td>

@@ -164,7 +164,7 @@
                 </ul><br><br><br>
                 <div class="dtime">
                     <div class="alert alert-info">
-                        <i class="icon-calendar"></i>
+                        <i class="icon-calendar"></i><span><i>HAVE A GOOD WORKING DAY</i></span><br><br>
                         <?php
                         $today = date('y:m:d');
                         $new = date('l, F d, Y', strtotime($today));
@@ -173,29 +173,31 @@
                     </div>
                  </div>
                 <div class="notif">
-                <span><i>HAVE A GOOD WORKING DAY</i></span><br><br>
+                
                 <div class="celeb">
                 <?php
                   include("connect.php"); 
-                    $date = date('-m-d');
-                    $bquery = $con->prepare("SELECT * FROM tbl_personnel WHERE per_date_of_birth LIKE '%$date%' ");
+                    $date = date("-m-d");
+					$dob= date("-m-d", strtotime($date));
+                    $bquery = $con->prepare("SELECT * FROM tbl_personnel WHERE per_date_of_birth LIKE '%$dob%' ");
                     $bquery->execute();
                     while($row = $bquery->fetch()) {
+						echo "<span><i>Today is ".$row['per_firstname']."'s birthday</i></span><br><br>";
                         $bday = $row["per_date_of_birth"];
                         $date = new DateTime($bday);
                         $now = new DateTime();
                         $difference = $date->diff($now)->format('%y');
                         $gender = $row['per_gender'];
 
-                    if ($gender == 'Male') { ?>
+                    if ($gender == "Nam") { ?>
                     
                         <span>Age: <?php echo $difference; ?></span><br>
-                        <span">Name: Mr. <?php echo $row['per_firstname']. " " . $row['per_middlename']. ". " . $row['per_lastname']; ?></span><br>
+                        <span">Name: Mr. <?php echo $row['per_lastname']. " " . $row['per_middlename']. " " . $row['per_firstname']; ?></span><br>
                         <span>Contact No.: <?php echo $row['per_contact_no']; ?></span><br>
                         <span>Campus: <?php echo $row['per_campus']; ?></span><br><br>
                    <?php } else { ?>
                         <span>Age: <?php echo $difference; ?></span><br>
-                        <span>Name: Ms/Mrs. <?php echo $row['per_firstname']. " " . $row['per_middlename']. ". " . $row['per_lastname']; ?></span><br>
+                        <span>Name: Ms/Mrs. <?php echo $row['per_lastname']. " " . $row['per_middlename']. " " . $row['per_firstname']; ?></span><br>
                         <span>Contact No.: <?php echo $row['per_contact_no']; ?></span><br>
                         <span>Campus: <?php echo $row['per_campus']; ?></span><br>
                   <?php  }
